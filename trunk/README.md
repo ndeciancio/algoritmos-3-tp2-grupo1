@@ -11,6 +11,3 @@ Horacio Martinez - 94926
 
 NOTAS:
 Agreguen nombre y padrón.
-
-Somos el grupo 1 ¿no?
-Sino hay que rehacer el repositorio :v
