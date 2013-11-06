@@ -1,4 +1,4 @@
-Algoritmos y Programación III
+﻿Algoritmos y Programación III
 Trabajo Práctico 2, Grupo 1
 ======================================
 
@@ -7,7 +7,7 @@ Integrantes:
 
 Adrián Barreal - 95137
 Horacio Martinez - 94926
-Santiago Monsech Prada - 92968
+Santiago Monsech Prada - 92968Nicolas Deciancio - 92150
 --------------------------------------
 
 NOTAS:
