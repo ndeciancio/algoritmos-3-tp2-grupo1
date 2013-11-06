@@ -1,5 +1,12 @@
 package modelo.sorpresas;
 
-public abstract class Sorpresa {
+import modelo.general.Posicion;
 
+public abstract class Sorpresa {
+	private Posicion posicion;
+	
+	public Sorpresa(Posicion posicion){
+		this.posicion = posicion;
+	}
+	
 }
