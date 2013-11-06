@@ -14,11 +14,4 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
-	<linkedResources>
-		<link>
-			<name>docs/Tp2 2ºC 2013 Clases.jpg</name>
-			<type>1</type>
-			<location>C:/Users/Nico/Desktop/Tp2 2ºC 2013 Clases.jpg</location>
-		</link>
-	</linkedResources>
 </projectDescription>
