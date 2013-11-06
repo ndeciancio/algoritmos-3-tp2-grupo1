@@ -25,5 +25,13 @@ public class Mapa {
 		}
 		return singleton;
 	}
+	
+	public void addObstaculo(Obstaculo o) {
+		obstaculos.add(o);
+	}
+	
+	public void addSorpresa(Sorpresa s) {
+		sorpresas.add(s);
+	}
 }
 
