@@ -1,5 +1,7 @@
 package modelo.obstaculos;
 
-public abstract class Obstaculo {
+import modelo.general.Posicion;
 
+public abstract class Obstaculo {
+	private Posicion posicion;
 }
