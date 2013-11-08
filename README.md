@@ -14,6 +14,10 @@ Nicolas Deciancio - 92150
 NOTAS:
 Hola gente, soy Adrián. Ahí tengo un diseño que (aparentemente) resuelve el problema. No es el más bonito, pero no se me ocurría otra forma de resolver el problema usando solo las clases en las que quedamos hoy. Si ustedes tienen algo mejor, lo charlamos mañana.
 
+<EDIT>
+Despues de una charla en Skype con Horacio, surgió un diseño más simple (aunque tiene un par de cosas que no me convencen del todo). Ahí subí el diagrama. Probablemente les guste más <.< aunque a mi no me convence que el auto sepa que tiene que mover de a dos; queda atado a la implementación del mapa, cosa que el diseño anterior trata de evitar. Igualmente lo charlamos mañana (hoy bah).
+</EDIT>
+
 No subí diagrama de secuencia, pero les dejo la secuencia acá en texto:
 
 0. Antes que nada, hay una clase abstracta Movimiento, de la que heredan MovimientoDerecha, MovimientoIzquierda, etc. (si ya se, no es bonito, pero esta idea mucho más lejos no la pude llevar).
