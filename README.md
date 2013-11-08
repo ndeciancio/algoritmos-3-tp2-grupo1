@@ -46,3 +46,5 @@ sin activar ningún evento).
 Resta pensar como inicializar vehículos con referencias al jugador. Yo diría un patrón Factory con un enumerado estilo Java. Para conseguir una moto, por ejemplo, sería: FabricaVehiculos.MOTOCICLETA.crearPara(jugador), o algo parecido.
 FabricaVehiculos y Vehiculo estarían en el mismo paquete. El constructor de vehículo tendría visibilidad de paquete y solo se debería poder obtener vehículos a partir de la fábrica.
 
+Otra cosa... parece no es necesaria la clase Posicion. Con que el jugador maneje su propia posición y tenga métodos para obtenerla debería alcanzar.
+
