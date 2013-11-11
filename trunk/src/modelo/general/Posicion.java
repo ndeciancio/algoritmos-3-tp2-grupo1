@@ -41,4 +41,12 @@ public class Posicion {
 			return false;
 		return true;
 	}
+	
+	public void setx(Integer x){
+		this.x = x;
+	}
+	
+	public void sety(Integer y){
+		this.y = y;
+	}	
 }
