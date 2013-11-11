@@ -2,7 +2,7 @@ package modelo.juego;
 
 import modelo.general.Mapa;
 
-public class Escenario {
+public class Jugador {
 	private Mapa mapaDeJuego = Mapa.getInstance();
 
 }
