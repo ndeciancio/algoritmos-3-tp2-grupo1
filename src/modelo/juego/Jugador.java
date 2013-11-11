@@ -1,8 +1,8 @@
 package modelo.juego;
 
-import modelo.general.Mapa;
+//import modelo.general.Mapa;
 
 public class Jugador {
-	private Mapa mapaDeJuego = Mapa.getInstance();
+//	private Mapa mapaDeJuego = Mapa.getInstance();
 
 }
