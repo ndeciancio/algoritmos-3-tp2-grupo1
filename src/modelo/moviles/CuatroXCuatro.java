@@ -20,6 +20,10 @@ public final class CuatroXCuatro implements Movil {
     public void cruzarPiquete(Jugador jugador){
         jugador.volverAtras();
     }
-
+    
+    @Override
+    public void rotarMovil(Jugador jugador){
+        jugador.setMovil(new Moto());
+    }
 
 }

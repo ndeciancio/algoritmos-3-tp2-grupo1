@@ -6,4 +6,5 @@ public interface Movil {
     public void cruzarBache(Jugador jugador);
     public void cruzarPiquete(Jugador jugador);
     public void cruzarControlPolicial(Jugador jugador);
+    public void rotarMovil(Jugador jugador);
 }

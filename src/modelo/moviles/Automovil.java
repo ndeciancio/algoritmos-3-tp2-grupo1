@@ -20,5 +20,10 @@ public final class Automovil implements Movil {
     public void cruzarPiquete(Jugador jugador){
         jugador.volverAtras();
     }
+    
+    @Override
+    public void rotarMovil(Jugador jugador){
+        jugador.setMovil(new CuatroXCuatro());
+    }
 
 }
