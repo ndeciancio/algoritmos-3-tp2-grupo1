@@ -1,4 +1,4 @@
-package modelo.sorpresas;
+package modelo.evento.sorpresas;
 
 import modelo.general.Posicion;
 

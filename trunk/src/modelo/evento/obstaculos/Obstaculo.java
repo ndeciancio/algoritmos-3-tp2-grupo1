@@ -1,4 +1,4 @@
-package modelo.obstaculos;
+package modelo.evento.obstaculos;
 
 import modelo.general.Posicion;
 

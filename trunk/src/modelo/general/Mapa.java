@@ -3,16 +3,15 @@ package modelo.general;
 import java.util.ArrayList;
 import java.util.List;
 
-import modelo.obstaculos.Obstaculo;
-import modelo.sorpresas.Sorpresa;
+import modelo.evento.Evento;
+
 
 
 public class Mapa {
 
 	private static Mapa singleton;
 
-	private List<Obstaculo> obstaculos = new ArrayList<Obstaculo>();
-	private List<Sorpresa> sorpresas = new ArrayList<Sorpresa>();
+	private List<Evento> eventos = new ArrayList<Evento>();
 	private Integer dimensionEnX = 800;
 	private Integer dimensionEnY = 600;
 
@@ -26,12 +25,9 @@ public class Mapa {
 		return singleton;
 	}
 	
-	public void addObstaculo(Obstaculo o) {
-		obstaculos.add(o);
+	public void addEvento(Evento e) {
+		eventos.add(e);
 	}
 	
-	public void addSorpresa(Sorpresa s) {
-		sorpresas.add(s);
-	}
 }
 
