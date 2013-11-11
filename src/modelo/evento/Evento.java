@@ -1,5 +1,13 @@
 package modelo.evento;
 
-public abstract class Evento {
+import modelo.general.Posicion;
 
+public abstract class Evento {
+	
+	protected Posicion posicion;
+
+	public Posicion getPosicion(){
+		return posicion;
+	}
+	
 }
