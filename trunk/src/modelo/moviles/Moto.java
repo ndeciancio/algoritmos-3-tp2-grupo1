@@ -21,4 +21,9 @@ public final class Moto implements Movil {
         jugador.sumarMovimientos(3);
     }
     
+    @Override
+    public void rotarMovil(Jugador jugador){
+        jugador.setMovil(new Automovil());
+    }
+    
 }

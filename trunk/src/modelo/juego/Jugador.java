@@ -18,7 +18,7 @@ public class Jugador {
         this.movimientos = 0;
         this.posicionActual = posicionInicial;
         this.posicionAnterior = new Posicion(posicionInicial);
-        setVehiculo(vehiculo);		
+        setMovil(vehiculo);		
 	}
 	
     public Movil getMovil(){
@@ -37,7 +37,7 @@ public class Jugador {
         this.movimientos += movimientos;
     }
     
-    public void setVehiculo(Movil vehiculo){
+    public void setMovil(Movil vehiculo){
     	this.movil = vehiculo;
     }
     
