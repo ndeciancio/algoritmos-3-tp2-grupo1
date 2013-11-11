@@ -13,11 +13,16 @@ public class Posicion {
 		this.y = coordY;
 	}
 	
-	public Integer getCoordX(){
+	public Posicion(Posicion posicion){
+		this.x = posicion.getCoordenadaX();
+		this.y = posicion.getCoordenadaY();
+	}
+	
+	public Integer getCoordenadaX(){
 		return this.x;
 	}
 	
-	public Integer getCoordY(){
+	public Integer getCoordenadaY(){
 		return this.y;
 	}
 	
