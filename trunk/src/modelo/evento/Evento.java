@@ -1,6 +1,7 @@
 package modelo.evento;
 
 import modelo.general.Posicion;
+import modelo.juego.Jugador;
 
 public abstract class Evento {
 	
@@ -10,4 +11,5 @@ public abstract class Evento {
 		return posicion;
 	}
 	
+	public abstract void interactuarCon(Jugador jugador);
 }
