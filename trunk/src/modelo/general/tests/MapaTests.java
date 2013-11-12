@@ -13,7 +13,7 @@ public class MapaTests {
 	@Test
 	public void testUnMapaPodriaTenerEventos() {
 		Mapa unMapa = Mapa.getInstance();
-		Posicion unaPosicion = new Posicion(1,1); 
+		Posicion unaPosicion = new Posicion(2,1); 
 		Bache unBache = new Bache(unaPosicion);
 		unMapa.addEvento(unBache);
 		assert(unMapa.tieneEvento());
@@ -22,7 +22,7 @@ public class MapaTests {
 	@Test
 	public void testUnMapaDeberiaConocerSiTieneUnEventoEnAlgunaPosicion(){
 		Mapa unMapa = Mapa.getInstance();
-		Posicion unaPosicion = new Posicion(1,3);
+		Posicion unaPosicion = new Posicion(2,3);
 		Bache unBache = new Bache(unaPosicion);
 		unMapa.addEvento(unBache);
 		assertEquals(unMapa.getEvento(unaPosicion),unBache);
@@ -31,8 +31,8 @@ public class MapaTests {
 	@Test
 	public void testUnMapaPodriaTenerMasDeUnEvento(){
 		Mapa unMapa = Mapa.getInstance();
-		Posicion unaPosicion = new Posicion(1,1);
-		Posicion otraPosicion = new Posicion(1,3);
+		Posicion unaPosicion = new Posicion(1,2);
+		Posicion otraPosicion = new Posicion(1,4);
 		Bache unBache = new Bache(unaPosicion);
 		Bache otroBache = new Bache(otraPosicion);
 		unMapa.addEvento(unBache);
