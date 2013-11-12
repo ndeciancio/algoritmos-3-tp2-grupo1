@@ -11,7 +11,8 @@ public class MovimientosAdicionales extends Sorpresa {
 
     @Override
     public void interactuarCon(Jugador jugador) {
-        int movimientosSumados = jugador.getMovimientos() / 4;
+        jugador.sumarMovimientos(1);
+    	int movimientosSumados = jugador.getMovimientos() / 4;
         jugador.sumarMovimientos(movimientosSumados);
     }
 
