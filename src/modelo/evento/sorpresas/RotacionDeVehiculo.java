@@ -11,7 +11,6 @@ public class RotacionDeVehiculo extends Sorpresa {
 
     @Override
     public void interactuarCon(Jugador jugador) {
-        jugador.sumarMovimientos(1);
     	jugador.getMovil().rotarMovil(jugador);        
     }
 
