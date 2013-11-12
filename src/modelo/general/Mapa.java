@@ -34,6 +34,10 @@ public class Mapa {
 		return eventos.isEmpty();
 	}
 	
+	public boolean tieneEvento(Posicion posicion){
+		return (this.getEvento(posicion) != null);
+	}
+	
 	public Evento getEvento(Posicion posicion){
 		Evento event = null;
 		Iterator<Evento> it = eventos.iterator();

@@ -48,25 +48,46 @@ public class Jugador {
 	public void moverDerecha(){
         recordarPosicion();
         posicionActual.setx(posicionActual.getCoordenadaX() + 2);
-        interactuarConEventoEnPosicion(posicionActual.getCoordenadaX()-1,posicionActual.getCoordenadaY());
+        Posicion posicionEvento = new Posicion(posicionActual.getCoordenadaX()-1,posicionActual.getCoordenadaY());
+        if (unMapa.tieneEvento(posicionEvento)){
+        	interactuarConEventoEnPosicion(posicionEvento);	
+        }else{
+        	this.movimientos++;
+        }    
 	}
 	
 	public void moverIzquierda(){
 		recordarPosicion();
         posicionActual.setx(posicionActual.getCoordenadaX() - 2);
-        interactuarConEventoEnPosicion(posicionActual.getCoordenadaX()+1,posicionActual.getCoordenadaY());
+        Posicion posicionEvento = new Posicion(posicionActual.getCoordenadaX() + 1,posicionActual.getCoordenadaY());
+        if (unMapa.tieneEvento(posicionEvento)){
+        	interactuarConEventoEnPosicion(posicionEvento);
+        }else{
+        	this.movimientos++;
+        }
 	}
 
 	public void moverArriba(){
         recordarPosicion();
         posicionActual.sety(posicionActual.getCoordenadaY() - 2);
-        interactuarConEventoEnPosicion(posicionActual.getCoordenadaX(),posicionActual.getCoordenadaY()+1);
-	}
+        Posicion posicionEvento = new Posicion(posicionActual.getCoordenadaX(),posicionActual.getCoordenadaY()+1);
+        if (unMapa.tieneEvento(posicionEvento)){
+        	interactuarConEventoEnPosicion(posicionEvento);
+        }else{
+        	this.movimientos++;
+        }
+    }
 
 	public void moverAbajo(){
         recordarPosicion();
         posicionActual.sety(posicionActual.getCoordenadaY() + 2);
-        interactuarConEventoEnPosicion(posicionActual.getCoordenadaX(),posicionActual.getCoordenadaY()-1);
+        Posicion posicionEvento = new Posicion(posicionActual.getCoordenadaX(),posicionActual.getCoordenadaY()-1);
+        if (unMapa.tieneEvento(posicionEvento)){
+        	interactuarConEventoEnPosicion(posicionEvento);
+        }else{
+        	this.movimientos++;
+        }
+        
 	}
 	
     private void recordarPosicion(){
@@ -79,8 +100,7 @@ public class Jugador {
         this.posicionActual.sety(posicionAnterior.getCoordenadaY());
     }
 
-    public void interactuarConEventoEnPosicion(int coordenadaX,int coordenadaY){
-    	Posicion posicionEvento = new Posicion(coordenadaX,coordenadaY);
+    public void interactuarConEventoEnPosicion(Posicion posicionEvento){
     	Evento unEvento = unMapa.getEvento(posicionEvento);
     	unEvento.interactuarCon(this);
     }
