@@ -7,7 +7,6 @@ import modelo.evento.Evento;
 
 public class Jugador {
 
-	//	private Mapa mapaDeJuego = Mapa.getInstance();
 	private Integer movimientos;
 	private Movil vehiculo;
 	private Mapa unaMapa = Mapa.getInstance();
@@ -27,6 +26,11 @@ public class Jugador {
     
     public Posicion getPosicionActual(){
     	return this.posicionActual;
+    }
+    
+    public Posicion getPosicionAnterior()
+    {
+    	return this.posicionAnterior;
     }
     
     public Integer getMovimientos(){
@@ -53,12 +57,12 @@ public class Jugador {
 
 	public void moverArriba(){
         recordarPosicion();
-        posicionActual.sety(posicionActual.getCoordenadaY() + 2);
+        posicionActual.sety(posicionActual.getCoordenadaY() - 2);
 	}
 
 	public void moverAbajo(){
         recordarPosicion();
-        posicionActual.sety(posicionActual.getCoordenadaY() - 2);
+        posicionActual.sety(posicionActual.getCoordenadaY() + 2);
 	}
 	
     private void recordarPosicion(){
@@ -67,8 +71,8 @@ public class Jugador {
     }
 
     public void volverAtras(){
-        this.posicionAnterior.setx(posicionAnterior.getCoordenadaX());
-        this.posicionAnterior.sety(posicionAnterior.getCoordenadaY());
+        this.posicionActual.setx(posicionAnterior.getCoordenadaX());
+        this.posicionActual.sety(posicionAnterior.getCoordenadaY());
     }
 
 }
