@@ -9,7 +9,7 @@ public class Jugador {
 
 	private Integer movimientos;
 	private Movil vehiculo;
-	private Mapa unaMapa = Mapa.getInstance();
+	private Mapa unMapa = Mapa.getInstance();
 	private Posicion posicionActual;
 	private Posicion posicionAnterior;
 	
@@ -81,7 +81,7 @@ public class Jugador {
 
     public void interactuarConEventoEnPosicion(int coordenadaX,int coordenadaY){
     	Posicion posicionEvento = new Posicion(coordenadaX,coordenadaY);
-    	Evento unEvento = Mapa.getInstance().getEvento(posicionEvento);
+    	Evento unEvento = unMapa.getEvento(posicionEvento);
     	unEvento.interactuarCon(this);
     }
 }

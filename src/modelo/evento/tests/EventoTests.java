@@ -4,7 +4,6 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 import modelo.general.*;
-import modelo.evento.*;
 import modelo.evento.obstaculos.*;
 import modelo.moviles.*;
 import modelo.juego.*;
