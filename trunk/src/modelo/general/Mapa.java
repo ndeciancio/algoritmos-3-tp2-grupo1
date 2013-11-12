@@ -13,8 +13,8 @@ public class Mapa {
 	private static Mapa singleton;
 
 	private List<Evento> eventos = new ArrayList<Evento>();
-	//private Integer dimensionEnX = 800;
-	//private Integer dimensionEnY = 600;
+	private Integer dimensionEnX = 20;
+	private Integer dimensionEnY = 20;
 
 	private Mapa() {
 	}
