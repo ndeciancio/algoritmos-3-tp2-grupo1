@@ -27,7 +27,10 @@ public class Mapa {
 	}
 	
 	public void addEvento(Evento e) {
+		Posicion posicionDeEvento = e.getPosicion();
+		if (this.getEvento(posicionDeEvento) == null){
 		eventos.add(e);
+	}
 	}
 	
 	public boolean tieneEvento(){

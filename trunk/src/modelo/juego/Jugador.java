@@ -50,6 +50,7 @@ public class Jugador {
         posicionActual.setx(posicionActual.getCoordenadaX() + 2);
         Posicion posicionEvento = new Posicion(posicionActual.getCoordenadaX()-1,posicionActual.getCoordenadaY());
         if (unMapa.tieneEvento(posicionEvento)){
+        	this.movimientos++;
         	interactuarConEventoEnPosicion(posicionEvento);	
         }else{
         	this.movimientos++;
@@ -61,6 +62,7 @@ public class Jugador {
         posicionActual.setx(posicionActual.getCoordenadaX() - 2);
         Posicion posicionEvento = new Posicion(posicionActual.getCoordenadaX() + 1,posicionActual.getCoordenadaY());
         if (unMapa.tieneEvento(posicionEvento)){
+        	this.movimientos++;
         	interactuarConEventoEnPosicion(posicionEvento);
         }else{
         	this.movimientos++;
@@ -72,6 +74,7 @@ public class Jugador {
         posicionActual.sety(posicionActual.getCoordenadaY() - 2);
         Posicion posicionEvento = new Posicion(posicionActual.getCoordenadaX(),posicionActual.getCoordenadaY()+1);
         if (unMapa.tieneEvento(posicionEvento)){
+        	this.movimientos++;
         	interactuarConEventoEnPosicion(posicionEvento);
         }else{
         	this.movimientos++;
@@ -83,11 +86,11 @@ public class Jugador {
         posicionActual.sety(posicionActual.getCoordenadaY() + 2);
         Posicion posicionEvento = new Posicion(posicionActual.getCoordenadaX(),posicionActual.getCoordenadaY()-1);
         if (unMapa.tieneEvento(posicionEvento)){
+        	this.movimientos++;
         	interactuarConEventoEnPosicion(posicionEvento);
         }else{
         	this.movimientos++;
-        }
-        
+        }   
 	}
 	
     private void recordarPosicion(){
@@ -98,7 +101,7 @@ public class Jugador {
     public void volverAtras(){
         this.posicionActual.setx(posicionAnterior.getCoordenadaX());
         this.posicionActual.sety(posicionAnterior.getCoordenadaY());
-        sumarMovimientos(2);
+        sumarMovimientos(1);
     }
 
     public void interactuarConEventoEnPosicion(Posicion posicionEvento){

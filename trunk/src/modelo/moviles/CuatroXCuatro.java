@@ -6,13 +6,12 @@ public final class CuatroXCuatro implements Movil {
     
     @Override
     public void cruzarBache(Jugador jugador){
-        jugador.sumarMovimientos(1);
+        jugador.sumarMovimientos(0);
     }
     
     @Override
     public void cruzarControlPolicial(Jugador jugador){   
-        jugador.sumarMovimientos(1);
-        if(Math.random() < 0.5)
+        if(Math.random() < 0.3)
             jugador.sumarMovimientos(3);
     }
     
