@@ -9,8 +9,8 @@ public class Jugador {
 
 	//	private Mapa mapaDeJuego = Mapa.getInstance();
 	private Integer movimientos;
-	private Movil movil;
-	private Mapa unMapa = Mapa.getInstance();
+	private Movil vehiculo;
+	private Mapa unaMapa = Mapa.getInstance();
 	private Posicion posicionActual;
 	private Posicion posicionAnterior;
 	
@@ -22,7 +22,7 @@ public class Jugador {
 	}
 	
     public Movil getMovil(){
-    	return this.movil;
+    	return this.vehiculo;
     }
     
     public Posicion getPosicionActual(){
@@ -38,7 +38,7 @@ public class Jugador {
     }
     
     public void setMovil(Movil vehiculo){
-    	this.movil = vehiculo;
+    	this.vehiculo = vehiculo;
     }
     
 	public void moverDerecha(){

@@ -16,7 +16,7 @@ public class JugadorTests {
 		Automovil unAuto = new Automovil();
 		Jugador unJugador = new Jugador(unaPosicion,unAuto);
 		unJugador.moverDerecha();
-		assert(unJugador.getPosicionActual().getCoordenadaX() == 198736);
+		assertEquals(unJugador.getPosicionActual().getCoordenadaX(), new Integer(198736));
 		
 		
 	}
