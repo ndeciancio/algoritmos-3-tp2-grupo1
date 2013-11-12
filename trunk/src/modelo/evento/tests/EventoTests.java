@@ -19,7 +19,15 @@ public class EventoTests {
 		Bache unBache = new Bache(new Posicion(3,2));
 		Mapa.getInstance().addEvento(unBache);
 		unJugador.moverDerecha();
-		int movimientos = unJugador.getMovimientos();
-		assertEquals(movimientos,4);	
+		assertEquals(unJugador.getMovimientos(),new Integer(4));	
+	}
+	
+	@Test
+	public void testUnJugadorPodriaCruzarUnaCalleSinObstaculosNiSopresas(){
+		Posicion posicionInicial = new Posicion(2,2);
+		Automovil unAuto = new Automovil();
+		Jugador unJugador = new Jugador(posicionInicial,unAuto);
+		unJugador.moverDerecha();
+		assertEquals(unJugador.getMovimientos(),new Integer(1));	
 	}
 }
