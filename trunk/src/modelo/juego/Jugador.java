@@ -48,21 +48,25 @@ public class Jugador {
 	public void moverDerecha(){
         recordarPosicion();
         posicionActual.setx(posicionActual.getCoordenadaX() + 2);
+        interactuarConEventoEnPosicion(posicionActual.getCoordenadaX()-1,posicionActual.getCoordenadaY());
 	}
 	
 	public void moverIzquierda(){
 		recordarPosicion();
         posicionActual.setx(posicionActual.getCoordenadaX() - 2);
+        interactuarConEventoEnPosicion(posicionActual.getCoordenadaX()+1,posicionActual.getCoordenadaY());
 	}
 
 	public void moverArriba(){
         recordarPosicion();
         posicionActual.sety(posicionActual.getCoordenadaY() - 2);
+        interactuarConEventoEnPosicion(posicionActual.getCoordenadaX(),posicionActual.getCoordenadaY()+1);
 	}
 
 	public void moverAbajo(){
         recordarPosicion();
         posicionActual.sety(posicionActual.getCoordenadaY() + 2);
+        interactuarConEventoEnPosicion(posicionActual.getCoordenadaX(),posicionActual.getCoordenadaY()-1);
 	}
 	
     private void recordarPosicion(){
@@ -75,4 +79,9 @@ public class Jugador {
         this.posicionActual.sety(posicionAnterior.getCoordenadaY());
     }
 
+    public void interactuarConEventoEnPosicion(int coordenadaX,int coordenadaY){
+    	Posicion posicionEvento = new Posicion(coordenadaX,coordenadaY);
+    	Evento unEvento = Mapa.getInstance().getEvento(posicionEvento);
+    	unEvento.interactuarCon(this);
+    }
 }
