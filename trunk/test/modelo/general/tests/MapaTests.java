@@ -2,6 +2,7 @@ package modelo.general.tests;
 
 import static org.junit.Assert.*;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import modelo.evento.obstaculos.Bache;
@@ -9,6 +10,11 @@ import modelo.general.Mapa;
 import modelo.general.Posicion;
 
 public class MapaTests {
+    
+    @Before
+    public void setUp(){
+        Mapa.getInstance().resetear();
+    }
 
 	@Test
 	public void testUnMapaPodriaTenerEventos() {
