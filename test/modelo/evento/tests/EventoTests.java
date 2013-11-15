@@ -9,11 +9,16 @@ import modelo.evento.obstaculos.*;
 import modelo.evento.sorpresas.*;
 
 
+import org.junit.Before;
 import org.junit.Test;
 
 public class EventoTests {
 
-	
+	@Before
+	public void setUp(){
+	    Mapa.getInstance().resetear();
+	}
+    
 	@Test
 	public void testUnJugadorNoDeberiaSerPenalizadoSiCruzaLaSiguienteEsquinaYNoAtraviezaNingunObstaculoOSorpresa(){
 		Posicion posicionInicial = new Posicion(1,1);

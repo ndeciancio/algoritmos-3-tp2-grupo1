@@ -51,6 +51,10 @@ public class Mapa {
 		}
 		return event;
 	}
+
+    public void resetear(){
+        eventos.clear();
+    }
 	
 }
 
