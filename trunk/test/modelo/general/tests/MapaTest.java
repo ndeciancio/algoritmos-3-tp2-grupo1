@@ -9,7 +9,7 @@ import modelo.evento.obstaculos.Bache;
 import modelo.general.Mapa;
 import modelo.general.Posicion;
 
-public class MapaTests {
+public class MapaTest {
     
     @Before
     public void setUp(){
