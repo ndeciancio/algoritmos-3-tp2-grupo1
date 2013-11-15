@@ -12,7 +12,7 @@ import modelo.evento.sorpresas.*;
 import org.junit.Before;
 import org.junit.Test;
 
-public class EventoTests {
+public class EventoTest {
 
 	@Before
 	public void setUp(){

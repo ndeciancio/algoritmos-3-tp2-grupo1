@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 import modelo.general.Posicion;
 
-public class PosicionTests {
+public class PosicionTest {
 
 	@Test
 	public void testUnaPosicionDeberiaTenerUnaCoordenadaEnX() {
