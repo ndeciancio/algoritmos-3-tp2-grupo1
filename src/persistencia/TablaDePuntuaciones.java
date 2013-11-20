@@ -23,6 +23,10 @@ public class TablaDePuntuaciones implements Iterable<TablaDePuntuaciones.Entrada
 		return puntuaciones.get(posicion);
 	}
 	
+	public int getCantidadDePuntuaciones(){
+	    return puntuaciones.size();
+	}
+	
 	@Override
 	public Iterator<Entrada> iterator(){
 		return puntuaciones.iterator();

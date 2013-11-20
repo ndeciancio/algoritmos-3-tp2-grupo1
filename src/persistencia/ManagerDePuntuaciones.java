@@ -23,11 +23,28 @@ class ManagerDePuntuaciones {
 	}
 	
 	public void ingresarPuntuacion(File archivo, String nombre, int puntuacion) throws TransformerException{
-		Element jugador = documento.createElement("jugador");
+		quitarJugadorPorNombre(nombre);
+	    Element jugador = documento.createElement("jugador");
 		jugador.setAttribute("nombre", nombre);
 		jugador.setAttribute("puntuacion", Integer.toString(puntuacion));
 		documento.getDocumentElement().appendChild(jugador);
 		actualizarDocumento(archivo);
+	}
+	
+	private void quitarJugadorPorNombre(String nombre){
+	    NodeList nodos = documento.getDocumentElement().getChildNodes();
+	    Element jugadorEliminado = null;
+	    for(int i = 0; i < nodos.getLength(); i++){
+	        Node nodo = nodos.item(i);
+	        if(esElemento(nodo) && ((Element)nodo).getAttribute("nombre").equals(nombre))
+	            jugadorEliminado = (Element)nodo;
+	    }
+	    if(jugadorEliminado != null)
+	        eliminarJugador(jugadorEliminado);
+	}
+	
+	private void eliminarJugador(Element jugador){
+	    jugador.getParentNode().removeChild(jugador);
 	}
 	
 	private void actualizarDocumento(File archivo) throws TransformerException {
@@ -41,7 +58,7 @@ class ManagerDePuntuaciones {
 	public TablaDePuntuaciones cargarPuntuaciones(){
 		NodeList nodos = documento.getDocumentElement().getChildNodes();
 		tabla = new TablaDePuntuaciones();
-		for(int i=0; i < nodos.getLength(); i++){
+		for(int i = 0; i < nodos.getLength(); i++){
 			Node nodo = nodos.item(i);
 			if(esElemento(nodo))
 				cargarJugadorEnTabla((Element)nodo);
@@ -55,8 +72,8 @@ class ManagerDePuntuaciones {
 	
 	private void cargarJugadorEnTabla(Element jugador){
 		String nombre = jugador.getAttribute("nombre");
-		String movimientos = jugador.getAttribute("puntuacion");
-		tabla.ingresar(nombre, Integer.parseInt(movimientos));
+		String puntuacion = jugador.getAttribute("puntuacion");
+		tabla.ingresar(nombre, Integer.parseInt(puntuacion));
 	}
 	
 }

@@ -73,5 +73,20 @@ public class MemoryCardTest {
 		assertEquals(puntuaciones.entradaEnPosicion(2).getNombre(), "Juancito");
 		assertEquals(puntuaciones.entradaEnPosicion(2).getPuntuacion(), 14);
 	}
+	
+	@Test
+	public void test_jugadoresYaExistentesSonActualizados(){
+        MemoryCard memory = new MemoryCard();
+        memory.nuevaPuntuacion(archivoPuntuaciones, "Mengano", 7);
+        
+        TablaDePuntuaciones puntuaciones = memory.cargarPuntuaciones(archivoPuntuaciones);
+        assertEquals(puntuaciones.entradaEnPosicion(0).getNombre(), "Mengano");
+        assertEquals(puntuaciones.entradaEnPosicion(0).getPuntuacion(), 7);
+        assertEquals(puntuaciones.entradaEnPosicion(1).getNombre(), "Fulano");
+        assertEquals(puntuaciones.entradaEnPosicion(1).getPuntuacion(), 8);
+        assertEquals(puntuaciones.entradaEnPosicion(2).getNombre(), "Pepito");
+        assertEquals(puntuaciones.entradaEnPosicion(2).getPuntuacion(), 16);
+        assertEquals(puntuaciones.getCantidadDePuntuaciones(), 3);
+	}
 
 }
