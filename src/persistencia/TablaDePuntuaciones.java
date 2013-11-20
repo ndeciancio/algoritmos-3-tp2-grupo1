@@ -30,23 +30,23 @@ public class TablaDePuntuaciones implements Iterable<TablaDePuntuaciones.Entrada
 
 	public class Entrada implements Comparable<Entrada> {
 		private String nombre;
-		private int movimientos;
+		private int puntuacion;
 		
 		Entrada(String nombre, int movimientos){
 			this.nombre = nombre;
-			this.movimientos = movimientos;
+			this.puntuacion = movimientos;
 		}
 		
 		public String getNombre(){
 			return nombre;
 		}
 		
-		public int getMovimientos(){
-			return movimientos;
+		public int getPuntuacion(){
+			return puntuacion;
 		}
 		
 		public int compareTo(Entrada referencia){
-			return Integer.compare(movimientos, referencia.getMovimientos());
+			return Integer.compare(puntuacion, referencia.getPuntuacion());
 		}
 	}
 	
