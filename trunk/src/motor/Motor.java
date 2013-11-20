@@ -3,6 +3,7 @@ package motor;
 import javax.swing.JFrame;
 
 import vista.componentes.FramePrincipal;
+import vista.componentes.PanelBienvenida;
 
 public class Motor {
 
@@ -13,7 +14,7 @@ public class Motor {
 	}
 	
 	public static void inicializarGUI(){
-		ventanaPrincipal = new FramePrincipal();
+		ventanaPrincipal = new FramePrincipal(new PanelBienvenida());
 	}
 	
 }

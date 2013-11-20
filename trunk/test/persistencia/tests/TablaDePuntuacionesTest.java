@@ -19,6 +19,7 @@ public class TablaDePuntuacionesTest {
 		assertEquals(tabla.entradaEnPosicion(0).getPuntuacion(), 2);
 		assertEquals(tabla.entradaEnPosicion(1).getNombre(), "Mengano");
 		assertEquals(tabla.entradaEnPosicion(1).getPuntuacion(), 6);
+		assertEquals(tabla.getCantidadDePuntuaciones(), 2);
 	}
 	
 	@Test
