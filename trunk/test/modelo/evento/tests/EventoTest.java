@@ -134,7 +134,7 @@ public class EventoTest {
 		Piquete unPiquete = new Piquete(new Posicion(3,2));
 		Mapa.getInstance().addEvento(unPiquete);
 		unJugador.moverAbajo();
-		assertEquals(unJugador.getMovimientos(),new Integer(2));		
+		assertEquals(unJugador.getMovimientos(),new Integer(1));		
 	}
 
 	@Test
@@ -208,7 +208,7 @@ public class EventoTest {
 		Piquete unPiquete = new Piquete(new Posicion(3,2));
 		Mapa.getInstance().addEvento(unPiquete);
 		unJugador.moverAbajo();
-		assertEquals(unJugador.getMovimientos(),new Integer(2));
+		assertEquals(unJugador.getMovimientos(),new Integer(1));
 	}
 	
 }

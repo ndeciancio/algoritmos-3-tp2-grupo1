@@ -101,7 +101,6 @@ public class Jugador {
     public void volverAtras(){
         this.posicionActual.setx(posicionAnterior.getCoordenadaX());
         this.posicionActual.sety(posicionAnterior.getCoordenadaY());
-        sumarMovimientos(1);
     }
 
     public void interactuarConEventoEnPosicion(Posicion posicionEvento){
