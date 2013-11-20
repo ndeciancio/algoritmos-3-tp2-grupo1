@@ -32,9 +32,9 @@ public class MemoryCardTest {
 	private void setPuntuaciones() throws IOException {
 		PrintWriter writer = new PrintWriter(archivoPuntuaciones, "UTF-8");
 		writer.println("<puntuaciones>");
-		writer.println("<jugador nombre=\"Fulano\" movimientos=\"8\" />");
-		writer.println("<jugador nombre=\"Mengano\" movimientos=\"12\" />");
-		writer.println("<jugador nombre=\"Pepito\" movimientos=\"16\" />");
+		writer.println("<jugador nombre=\"Fulano\" puntuacion=\"8\" />");
+		writer.println("<jugador nombre=\"Mengano\" puntuacion=\"12\" />");
+		writer.println("<jugador nombre=\"Pepito\" puntuacion=\"16\" />");
 		writer.println("</puntuaciones>");
 		writer.close();
 	}
@@ -43,9 +43,9 @@ public class MemoryCardTest {
 	public void test_archivoTemporalDePuntuacionesPreparadoCorrectamente() throws IOException {
 		BufferedReader lector = new BufferedReader(new FileReader(archivoPuntuaciones));
 		assertEquals(lector.readLine(), "<puntuaciones>");
-		assertEquals(lector.readLine(), "<jugador nombre=\"Fulano\" movimientos=\"8\" />");
-		assertEquals(lector.readLine(), "<jugador nombre=\"Mengano\" movimientos=\"12\" />");
-		assertEquals(lector.readLine(), "<jugador nombre=\"Pepito\" movimientos=\"16\" />");
+		assertEquals(lector.readLine(), "<jugador nombre=\"Fulano\" puntuacion=\"8\" />");
+		assertEquals(lector.readLine(), "<jugador nombre=\"Mengano\" puntuacion=\"12\" />");
+		assertEquals(lector.readLine(), "<jugador nombre=\"Pepito\" puntuacion=\"16\" />");
 		assertEquals(lector.readLine(), "</puntuaciones>");
 		lector.close();
 	}
@@ -59,9 +59,9 @@ public class MemoryCardTest {
 		assertEquals(puntuaciones.entradaEnPosicion(1).getNombre(), "Mengano");
 		assertEquals(puntuaciones.entradaEnPosicion(2).getNombre(), "Pepito");
 		
-		assertEquals(puntuaciones.entradaEnPosicion(0).getMovimientos(), 8);
-		assertEquals(puntuaciones.entradaEnPosicion(1).getMovimientos(), 12);
-		assertEquals(puntuaciones.entradaEnPosicion(2).getMovimientos(), 16);
+		assertEquals(puntuaciones.entradaEnPosicion(0).getPuntuacion(), 8);
+		assertEquals(puntuaciones.entradaEnPosicion(1).getPuntuacion(), 12);
+		assertEquals(puntuaciones.entradaEnPosicion(2).getPuntuacion(), 16);
 	}
 	
 	@Test
@@ -71,7 +71,7 @@ public class MemoryCardTest {
 		
 		TablaDePuntuaciones puntuaciones = memory.cargarPuntuaciones(archivoPuntuaciones);
 		assertEquals(puntuaciones.entradaEnPosicion(2).getNombre(), "Juancito");
-		assertEquals(puntuaciones.entradaEnPosicion(2).getMovimientos(), 14);
+		assertEquals(puntuaciones.entradaEnPosicion(2).getPuntuacion(), 14);
 	}
 
 }

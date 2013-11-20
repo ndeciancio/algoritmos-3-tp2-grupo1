@@ -22,10 +22,10 @@ class ManagerDePuntuaciones {
 		this.documento = documento;
 	}
 	
-	public void ingresarPuntuacion(File archivo, String nombre, int movimientos) throws TransformerException{
+	public void ingresarPuntuacion(File archivo, String nombre, int puntuacion) throws TransformerException{
 		Element jugador = documento.createElement("jugador");
 		jugador.setAttribute("nombre", nombre);
-		jugador.setAttribute("movimientos", Integer.toString(movimientos));
+		jugador.setAttribute("puntuacion", Integer.toString(puntuacion));
 		documento.getDocumentElement().appendChild(jugador);
 		actualizarDocumento(archivo);
 	}
@@ -55,7 +55,7 @@ class ManagerDePuntuaciones {
 	
 	private void cargarJugadorEnTabla(Element jugador){
 		String nombre = jugador.getAttribute("nombre");
-		String movimientos = jugador.getAttribute("movimientos");
+		String movimientos = jugador.getAttribute("puntuacion");
 		tabla.ingresar(nombre, Integer.parseInt(movimientos));
 	}
 	

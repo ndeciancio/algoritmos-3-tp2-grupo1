@@ -22,11 +22,6 @@ ARCHIVO DEL MAPA (ejemplo)
 		<evento clase="ControlPolicial" x="6" y="7" />
 	</eventos>
 
-	<posiciones>
-		<inicial x="2" y="2" />
-		<final x="6" y="6" />
-	</posiciones>
-
 </mapa>
 
 =======================================================
@@ -43,6 +38,6 @@ ARCHIVO DEL ESTADO DEL JUGADOR (ejemplo)
 ARCHIVO DE PUNTUACIONES (ejemplo)
 
 <puntuaciones>
-	<jugador nombre="Fulano" movimientos="22" />
-	<jugador nombre="Mengano" movimientos="24" />
+	<jugador nombre="Fulano" puntuacion="22" />
+	<jugador nombre="Mengano" puntuacion="24" />
 </puntuaciones>
