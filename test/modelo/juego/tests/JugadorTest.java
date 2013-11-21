@@ -94,4 +94,58 @@ public class JugadorTest {
 		unJugador.moverArriba();
 		assertTrue(unJugador.getPosicionAnterior().equals(new Posicion(5,5)));
 	}
+	
+	@Test
+	public void testUnJugadorNoDeberiaPoderMoverseFueraDelMapa(){
+		Posicion unaPosicion = new Posicion(1,1);
+		Automovil unAuto = new Automovil();
+		Jugador unJugador = new Jugador(unaPosicion,unAuto);
+		unJugador.moverArriba();
+		assertTrue(unJugador.getPosicionActual().equals(new Posicion(1,1)));
+	}
+
+	@Test
+	public void testUnJugadorNoDeberiaPoderMoverseALaDerechaSiLlegaraAlExtremoDerechoDelMapa(){
+		Posicion unaPosicion = new Posicion(17,1);
+		Automovil unAuto = new Automovil();
+		Jugador unJugador = new Jugador(unaPosicion,unAuto);
+		unJugador.moverDerecha();
+		assertTrue(unJugador.getPosicionActual().equals(new Posicion(19,1)));
+		unJugador.moverDerecha();
+		assertTrue(unJugador.getPosicionActual().equals(new Posicion(19,1)));
+	}
+
+	@Test
+	public void testUnJugadorNoDeberiaPoderMoverseALaIzquierdaSiLLegaraAlExtremoIzquierdoDelMapa(){
+		Posicion unaPosicion = new Posicion(3,1);
+		Automovil unAuto = new Automovil();
+		Jugador unJugador = new Jugador(unaPosicion,unAuto);
+		unJugador.moverIzquierda();
+		assertTrue(unJugador.getPosicionActual().equals(new Posicion(1,1)));
+		unJugador.moverIzquierda();
+		assertTrue(unJugador.getPosicionActual().equals(new Posicion(1,1)));
+	}
+
+	@Test
+	public void testUnJugadorNoDeberiaPoderMoverseHaciaArribaSiLlegaraAlExtremoSuperiorDelMapa(){
+		Posicion unaPosicion = new Posicion(1,3);
+		Automovil unAuto = new Automovil();
+		Jugador unJugador = new Jugador(unaPosicion,unAuto);
+		unJugador.moverArriba();
+		assertTrue(unJugador.getPosicionActual().equals(new Posicion(1,1)));
+		unJugador.moverArriba();
+		assertTrue(unJugador.getPosicionActual().equals(new Posicion(1,1)));
+	}
+
+	@Test
+	public void testUnJugadorNoDeberiaPoderMoverseHaciaAbajoSiLlegaraAlExtremoInferiorDelMapa(){
+		Posicion unaPosicion = new Posicion(1,17);
+		Automovil unAuto = new Automovil();
+		Jugador unJugador = new Jugador(unaPosicion,unAuto);
+		unJugador.moverAbajo();
+		assertTrue(unJugador.getPosicionActual().equals(new Posicion(1,19)));
+		unJugador.moverAbajo();
+		assertTrue(unJugador.getPosicionActual().equals(new Posicion(1,19)));
+	}
 }
+
