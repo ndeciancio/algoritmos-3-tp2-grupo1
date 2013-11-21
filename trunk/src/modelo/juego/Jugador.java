@@ -45,52 +45,64 @@ public class Jugador {
     	this.vehiculo = vehiculo;
     }
     
+    public boolean puedeMoverse(Posicion posicion){
+    	return ((this.unMapa.hayMapaEnX(posicion)) && (this.unMapa.hayMapaEnY(posicion)));
+    }
+    
 	public void moverDerecha(){
-        recordarPosicion();
-        posicionActual.setx(posicionActual.getCoordenadaX() + 2);
-        Posicion posicionEvento = new Posicion(posicionActual.getCoordenadaX()-1,posicionActual.getCoordenadaY());
-        if (unMapa.tieneEvento(posicionEvento)){
-        	this.movimientos++;
-        	interactuarConEventoEnPosicion(posicionEvento);	
-        }else{
-        	this.movimientos++;
-        }    
-	}
+        if(this.puedeMoverse(new Posicion(posicionActual.getCoordenadaX()+2,posicionActual.getCoordenadaY()))){	
+			recordarPosicion();
+	        posicionActual.setx(posicionActual.getCoordenadaX() + 2);
+	        Posicion posicionEvento = new Posicion(posicionActual.getCoordenadaX()-1,posicionActual.getCoordenadaY());
+	        if (unMapa.tieneEvento(posicionEvento)){
+	        	this.movimientos++;
+	        	interactuarConEventoEnPosicion(posicionEvento);	
+	        }else{
+	        	this.movimientos++;
+	        }    
+        }
+     }
 	
 	public void moverIzquierda(){
-		recordarPosicion();
-        posicionActual.setx(posicionActual.getCoordenadaX() - 2);
-        Posicion posicionEvento = new Posicion(posicionActual.getCoordenadaX() + 1,posicionActual.getCoordenadaY());
-        if (unMapa.tieneEvento(posicionEvento)){
-        	this.movimientos++;
-        	interactuarConEventoEnPosicion(posicionEvento);
-        }else{
-        	this.movimientos++;
+        if(this.puedeMoverse(new Posicion(posicionActual.getCoordenadaX()-2,posicionActual.getCoordenadaY()))){
+			recordarPosicion();
+	        posicionActual.setx(posicionActual.getCoordenadaX() - 2);
+	        Posicion posicionEvento = new Posicion(posicionActual.getCoordenadaX() + 1,posicionActual.getCoordenadaY());
+	        if (unMapa.tieneEvento(posicionEvento)){
+	        	this.movimientos++;
+	        	interactuarConEventoEnPosicion(posicionEvento);
+	        }else{
+	        	this.movimientos++;
+	        }
         }
 	}
 
 	public void moverArriba(){
-        recordarPosicion();
-        posicionActual.sety(posicionActual.getCoordenadaY() - 2);
-        Posicion posicionEvento = new Posicion(posicionActual.getCoordenadaX(),posicionActual.getCoordenadaY()+1);
-        if (unMapa.tieneEvento(posicionEvento)){
-        	this.movimientos++;
-        	interactuarConEventoEnPosicion(posicionEvento);
-        }else{
-        	this.movimientos++;
+        if(this.puedeMoverse(new Posicion(posicionActual.getCoordenadaX(),posicionActual.getCoordenadaY()-2))){
+			recordarPosicion();
+	        posicionActual.sety(posicionActual.getCoordenadaY() - 2);
+	        Posicion posicionEvento = new Posicion(posicionActual.getCoordenadaX(),posicionActual.getCoordenadaY()+1);
+	        if (unMapa.tieneEvento(posicionEvento)){
+	        	this.movimientos++;
+	        	interactuarConEventoEnPosicion(posicionEvento);
+	        }else{
+	        	this.movimientos++;
+	        }
         }
-    }
+	}
 
 	public void moverAbajo(){
-        recordarPosicion();
-        posicionActual.sety(posicionActual.getCoordenadaY() + 2);
-        Posicion posicionEvento = new Posicion(posicionActual.getCoordenadaX(),posicionActual.getCoordenadaY()-1);
-        if (unMapa.tieneEvento(posicionEvento)){
-        	this.movimientos++;
-        	interactuarConEventoEnPosicion(posicionEvento);
-        }else{
-        	this.movimientos++;
-        }   
+        if(this.puedeMoverse(new Posicion(posicionActual.getCoordenadaX()+2,posicionActual.getCoordenadaY()+2))){
+			recordarPosicion();
+	        posicionActual.sety(posicionActual.getCoordenadaY() + 2);
+	        Posicion posicionEvento = new Posicion(posicionActual.getCoordenadaX(),posicionActual.getCoordenadaY()-1);
+	        if (unMapa.tieneEvento(posicionEvento)){
+	        	this.movimientos++;
+	        	interactuarConEventoEnPosicion(posicionEvento);
+	        }else{
+	        	this.movimientos++;
+	        }   
+        }
 	}
 	
     private void recordarPosicion(){
