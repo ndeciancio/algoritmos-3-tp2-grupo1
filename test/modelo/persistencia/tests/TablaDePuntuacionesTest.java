@@ -1,10 +1,11 @@
-package persistencia.tests;
+package modelo.persistencia.tests;
 
 import static org.junit.Assert.*;
 
+import modelo.persistencia.TablaDePuntuaciones;
+
 import org.junit.Test;
 
-import persistencia.TablaDePuntuaciones;
 
 public class TablaDePuntuacionesTest {
 

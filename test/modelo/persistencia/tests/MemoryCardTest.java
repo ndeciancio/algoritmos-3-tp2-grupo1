@@ -1,4 +1,4 @@
-package persistencia.tests;
+package modelo.persistencia.tests;
 
 import static org.junit.Assert.*;
 
@@ -8,13 +8,14 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import modelo.persistencia.MemoryCard;
+import modelo.persistencia.TablaDePuntuaciones;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.Rule;
 import org.junit.rules.TemporaryFolder;
 
-import persistencia.MemoryCard;
-import persistencia.TablaDePuntuaciones;
 
 public class MemoryCardTest {
 
