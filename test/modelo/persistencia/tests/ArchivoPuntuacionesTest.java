@@ -14,7 +14,6 @@ public class ArchivoPuntuacionesTest {
     @Test
     public void test_archivoPuntuacionesDeberiaCrearseAutomaticamenteDeNoExistir() throws IOException {
         File archivo = new ArchivoPuntuaciones();
-        System.out.println(archivo.getAbsolutePath());
         assertTrue(archivo.exists());
     }
 
