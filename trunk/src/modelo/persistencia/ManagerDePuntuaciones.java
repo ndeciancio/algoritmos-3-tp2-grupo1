@@ -1,4 +1,4 @@
-package persistencia;
+package modelo.persistencia;
 
 import java.io.File;
 

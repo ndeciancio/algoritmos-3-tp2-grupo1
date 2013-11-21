@@ -1,4 +1,4 @@
-package persistencia;
+package modelo.persistencia;
 
 import java.util.Collections;
 import java.util.Iterator;
