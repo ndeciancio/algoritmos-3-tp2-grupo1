@@ -3,12 +3,14 @@ package vista.componentes;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 
+import controladores.ControladorBotonSoyNuevo;
+
 public class PanelBienvenida extends PanelCentrado {
 
 	private static final long serialVersionUID = 1L;
 	
-	public PanelBienvenida(){
-	    super();
+	public PanelBienvenida(FramePrincipal framePrincipal){
+	    super(framePrincipal);
 	}
 	
 	@Override
@@ -31,6 +33,7 @@ public class PanelBienvenida extends PanelCentrado {
 	
 	private JButton crearBotonSoyNuevo(){
 	    JButton boton = new JButton("Soy Nuevo");
+	    boton.addActionListener(crearControladorSoyNuevo());
 	    centrarComponenteEnX(boton);
 	    return boton;
 	}
@@ -39,6 +42,10 @@ public class PanelBienvenida extends PanelCentrado {
 	    JButton boton = new JButton("Ya Tengo Usuario");
 	    centrarComponenteEnX(boton);
 	    return boton;
+	}
+	
+	private ControladorBotonSoyNuevo crearControladorSoyNuevo(){
+	    return new ControladorBotonSoyNuevo(framePrincipal);
 	}
 	
 }

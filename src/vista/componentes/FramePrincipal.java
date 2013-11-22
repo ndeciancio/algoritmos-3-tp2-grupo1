@@ -12,27 +12,25 @@ public class FramePrincipal extends JFrame {
 	private final String TITULO = "GPS Challenge";
 	private final Dimension DIMENSIONES = new Dimension(480, 320);
 	
-	public FramePrincipal(JPanel panelInicial){
+	public FramePrincipal(){
 		configurarPropiedades();
-		setPanel(panelInicial);
-		mostrar();
 	}
+	
+    public void setPanel(JPanel panel){
+        this.setContentPane(panel);
+        this.revalidate();
+        this.repaint();
+    }
+    
+    public void mostrar(){
+        this.setVisible(true);
+    }
 	
 	private void configurarPropiedades(){
 		this.setTitle(TITULO);
 		this.setSize(DIMENSIONES);
 		this.setResizable(false);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	}
-	
-	private void setPanel(JPanel panel){
-		this.setContentPane(panel);
-		this.revalidate();
-		this.repaint();
-	}
-	
-	private void mostrar(){
-		this.setVisible(true);
 	}
 
 }

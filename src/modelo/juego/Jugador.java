@@ -2,6 +2,7 @@ package modelo.juego;
 
 import modelo.general.Mapa;
 import modelo.general.Posicion;
+import modelo.moviles.Automovil;
 import modelo.moviles.Movil;
 import modelo.evento.Evento;
 
@@ -20,6 +21,10 @@ public class Jugador {
         this.posicionAnterior = new Posicion(posicionInicial);
         this.nombre = "Anonimo";
         setMovil(vehiculo);		
+	}
+	
+	public static Jugador crearPorDefecto(){
+	    return new Jugador(new Posicion(0, 0), new Automovil());
 	}
 	
 	public void setNombre(String nombre){

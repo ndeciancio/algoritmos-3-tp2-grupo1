@@ -2,7 +2,30 @@ package modelo.juego;
 
 public class Juego {
     
+    private static Juego instancia = new Juego();
     private Dificultad dificultad;
+    private Jugador jugador;
+    
+    private Juego(){
+        // Singleton, usar getInstance();
+    }
+    
+    public static Juego getInstance(){
+        return instancia;
+    }
+    
+    public static void reiniciar(){
+        instancia.setDificultad(null);
+        instancia.setJugador(null);
+    }
+    
+    public void setJugador(Jugador jugador){
+        this.jugador = jugador;
+    }
+    
+    public Jugador getJugador(){
+        return jugador;        
+    }
     
     public void setDificultad(Dificultad dificultad){
         this.dificultad = dificultad;

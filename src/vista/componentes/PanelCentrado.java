@@ -11,8 +11,10 @@ import javax.swing.JPanel;
 public abstract class PanelCentrado extends JPanel {
 
     private static final long serialVersionUID = 1L;
-
-    public PanelCentrado(){
+    protected FramePrincipal framePrincipal;
+    
+    public PanelCentrado(FramePrincipal framePrincipal){
+        this.framePrincipal = framePrincipal;
         configurarLayout();
         crearPegamentoVertical();
         configurarComponentes();
