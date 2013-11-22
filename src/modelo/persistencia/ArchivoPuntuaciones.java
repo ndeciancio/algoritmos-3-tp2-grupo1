@@ -14,7 +14,7 @@ public class ArchivoPuntuaciones extends File {
         crearArchivoSiNoExisteYa();
     }
 
-    private void crearArchivoSiNoExisteYa() throws IOException{
+    public void crearArchivoSiNoExisteYa() throws IOException{
         if(createNewFile())
             ingresarRootXML();
     }
