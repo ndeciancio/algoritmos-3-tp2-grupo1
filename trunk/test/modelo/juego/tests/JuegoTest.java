@@ -4,13 +4,19 @@ import static org.junit.Assert.*;
 
 import modelo.juego.Juego;
 
+import org.junit.Before;
 import org.junit.Test;
 
 public class JuegoTest {
 
+    @Before
+    public void setUp(){
+        Juego.reiniciar();
+    }
+    
     @Test
     public void test_calculoDePuntajesEnModoFacil() {
-        Juego juego = new Juego();
+        Juego juego = Juego.getInstance();
         juego.setDificultad(Juego.Dificultad.FACIL);
         
         assertEquals(juego.getDificultad().calcularPuntuacion(50), 30);
@@ -20,7 +26,7 @@ public class JuegoTest {
     
     @Test
     public void test_calculoDePuntajesEnModoModerado() {
-        Juego juego = new Juego();
+        Juego juego = Juego.getInstance();
         juego.setDificultad(Juego.Dificultad.MODERADO);
         
         assertEquals(juego.getDificultad().calcularPuntuacion(40), 20);
@@ -30,7 +36,7 @@ public class JuegoTest {
     
     @Test
     public void test_calculoDePuntajesEnModoDificil() {
-        Juego juego = new Juego();
+        Juego juego = Juego.getInstance();
         juego.setDificultad(Juego.Dificultad.DIFICIL);
         
         assertEquals(juego.getDificultad().calcularPuntuacion(30), 15);

@@ -1,25 +1,35 @@
 package vista.componentes;
 
 import java.awt.Dimension;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
+import controladores.ControladorBotonGuardarNuevoJugador;
+
 public class PanelIngresarNombre extends PanelCentrado {
 
     private static final long serialVersionUID = 1L;
-
+    
+    public PanelIngresarNombre(FramePrincipal framePrincipal){
+        super(framePrincipal);
+    }
+    
     @Override
     protected void configurarComponentes(){
         
         this.add(crearLabelIngreseSuNombre());
         
-        this.insertarGapVertical(10);
-        this.add(crearCampoDeTextoNombre());
+        JTextField campoDeTexto = crearCampoDeTextoNombre();
+        this.insertarGapVertical(10); 
+        this.add(campoDeTexto);
         
+        JButton botonAceptar = crearBotonAceptar();
+        botonAceptar.addActionListener(crearControladorAceptar(campoDeTexto));
         this.insertarGapVertical(10);
-        this.add(crearBotonAceptar());
+        this.add(botonAceptar);
         
     }
     
@@ -41,6 +51,11 @@ public class PanelIngresarNombre extends PanelCentrado {
         JButton boton = new JButton("Aceptar");
         centrarComponenteEnX(boton);
         return boton;
+    }
+    
+    private ActionListener crearControladorAceptar(JTextField campoConNombre){
+        ActionListener listener = new ControladorBotonGuardarNuevoJugador(framePrincipal, campoConNombre);
+        return listener;
     }
     
 }
