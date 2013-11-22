@@ -8,7 +8,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-import modelo.persistencia.MemoryCard;
+import modelo.persistencia.FachadaPersistencia;
 import modelo.persistencia.TablaDePuntuaciones;
 
 import org.junit.Before;
@@ -17,7 +17,7 @@ import org.junit.Rule;
 import org.junit.rules.TemporaryFolder;
 
 
-public class MemoryCardTest {
+public class FachadaPersistenciaTest {
 
 	private File archivoPuntuaciones;
 	
@@ -53,7 +53,7 @@ public class MemoryCardTest {
 	
 	@Test
 	public void test_puntuacionesCargadasCorrectamente(){
-		MemoryCard memory = new MemoryCard();
+		FachadaPersistencia memory = new FachadaPersistencia();
 		TablaDePuntuaciones puntuaciones = memory.cargarPuntuaciones(archivoPuntuaciones);
 		
 		assertEquals(puntuaciones.entradaEnPosicion(0).getNombre(), "Fulano");
@@ -67,7 +67,7 @@ public class MemoryCardTest {
 	
 	@Test
 	public void test_nuevasPuntuacionesSonIngresadasCorrectamente(){
-		MemoryCard memory = new MemoryCard();
+		FachadaPersistencia memory = new FachadaPersistencia();
 		memory.nuevaPuntuacion(archivoPuntuaciones, "Juancito", 14);
 		
 		TablaDePuntuaciones puntuaciones = memory.cargarPuntuaciones(archivoPuntuaciones);
@@ -77,7 +77,7 @@ public class MemoryCardTest {
 	
 	@Test
 	public void test_jugadoresYaExistentesSonActualizados(){
-        MemoryCard memory = new MemoryCard();
+        FachadaPersistencia memory = new FachadaPersistencia();
         memory.nuevaPuntuacion(archivoPuntuaciones, "Mengano", 7);
         
         TablaDePuntuaciones puntuaciones = memory.cargarPuntuaciones(archivoPuntuaciones);

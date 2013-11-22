@@ -10,11 +10,21 @@ import javax.xml.parsers.ParserConfigurationException;
 import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
 
-public class MemoryCard {
+public class FachadaPersistencia {
 
 	File archivo;
 	DocumentBuilder builder;
 	Document documento;
+	
+    public TablaDePuntuaciones cargarPuntuaciones(){
+        ArchivoPuntuaciones archivo = null;
+        try {
+            archivo = new ArchivoPuntuaciones();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return cargarPuntuaciones(archivo);
+    }
 	
 	public TablaDePuntuaciones cargarPuntuaciones(File archivo){
 		abrirArchivo(archivo);
@@ -22,14 +32,32 @@ public class MemoryCard {
 		return lector.cargarPuntuaciones();
 	}
 	
+	public void nuevaPuntuacion(String nombre, int puntuacion){
+	    try {
+            nuevaPuntuacion(new ArchivoPuntuaciones(), nombre, puntuacion);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+	}
+	
 	public void nuevaPuntuacion(File archivo, String nombre, int movimientos){
-		abrirArchivo(archivo);
-		ManagerDePuntuaciones escritor = new ManagerDePuntuaciones(documento);
-		try {
+	    try {
+	        abrirArchivo(archivo);
+	        ManagerDePuntuaciones escritor = new ManagerDePuntuaciones(documento);
 			escritor.ingresarPuntuacion(archivo, nombre, movimientos);
 		} catch(Exception e){
 			e.printStackTrace();
 		}
+	}
+	
+	public void borrarPuntuaciones(){
+	    try {
+            ArchivoPuntuaciones puntuaciones = new ArchivoPuntuaciones();
+            puntuaciones.delete();
+            puntuaciones.crearArchivoSiNoExisteYa();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }	    
 	}
 	
 	private void abrirArchivo(File archivo){

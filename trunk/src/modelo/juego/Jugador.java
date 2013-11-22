@@ -12,12 +12,22 @@ public class Jugador {
 	private Mapa unMapa = Mapa.getInstance();
 	private Posicion posicionActual;
 	private Posicion posicionAnterior;
+	private String nombre;
 	
 	public Jugador(Posicion posicionInicial, Movil vehiculo){
         this.movimientos = 0;
         this.posicionActual = posicionInicial;
         this.posicionAnterior = new Posicion(posicionInicial);
+        this.nombre = "Anonimo";
         setMovil(vehiculo);		
+	}
+	
+	public void setNombre(String nombre){
+	    this.nombre = nombre;
+	}
+	
+	public String getNombre(){
+	    return nombre;
 	}
 	
     public Movil getMovil(){
