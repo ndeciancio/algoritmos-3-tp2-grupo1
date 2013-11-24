@@ -5,6 +5,7 @@ import modelo.juego.Jugador;
 
 import vista.componentes.FramePrincipal;
 import vista.componentes.PanelBienvenida;
+import vista.componentes.PanelMapa;
 
 public class Motor {
 
@@ -23,7 +24,7 @@ public class Motor {
 	
 	public static void inicializarGUI(){
 		ventanaPrincipal = new FramePrincipal();
-		ventanaPrincipal.setPanel(new PanelBienvenida(ventanaPrincipal));
+		ventanaPrincipal.setPanel(new PanelMapa(ventanaPrincipal));
 		ventanaPrincipal.mostrar();
 	}
 	
