@@ -34,17 +34,28 @@ public class PanelMapa extends PanelCentrado {
     }
     
     private void pintarCuadras(Graphics grafico){
-        int auxEnX=0;
-        int auxEnY=0;
+        int auxEnX = calcularXParaCentrarElMapa();
+        int auxEnY = 0;
         BufferedImage imagenCuadra = Imagenes.CUADRA.obtenerImagen();
-        for (int i=0; i < cuadrasEnX; i++) {
-            for (int j=0; j < cuadrasEnY; j++) {
+        for (int i = 0; i < cuadrasEnX; i++) {
+            for (int j = 0; j < cuadrasEnY; j++) {
                 grafico.drawImage(imagenCuadra, auxEnX, auxEnY+DISTANCIA_ENTRE_CUADRAS, null);
-                auxEnY=auxEnY+DISTANCIA_ENTRE_CUADRAS;
+                auxEnY = auxEnY + DISTANCIA_ENTRE_CUADRAS;
             }
-            auxEnX=auxEnX+DISTANCIA_ENTRE_CUADRAS;
-            auxEnY=0;
+            auxEnX = auxEnX + DISTANCIA_ENTRE_CUADRAS;
+            auxEnY = 0;
         }
+    }
+    
+    private int calcularXParaCentrarElMapa(){
+        int anchoVentana = framePrincipal.getWidth();
+        int anchoMapa = calcularAnchoDelGraficoDelMapa();
+        return ((anchoVentana - anchoMapa)/2);
+    }
+    
+    private int calcularAnchoDelGraficoDelMapa(){
+        int anchoDeUnaCuadra = Imagenes.CUADRA.obtenerImagen().getWidth();
+        return (cuadrasEnX*anchoDeUnaCuadra + (cuadrasEnX - 1)*DISTANCIA_ENTRE_CUADRAS);
     }
     
     private void pintarEventos(Graphics grafico){
