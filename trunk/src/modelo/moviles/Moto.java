@@ -25,4 +25,9 @@ public final class Moto implements Movil {
         jugador.setMovil(new Automovil());
     }
     
+    @Override
+    public String toString(){
+        return "Moto";
+    }
+    
 }

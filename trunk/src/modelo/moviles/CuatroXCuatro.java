@@ -24,5 +24,10 @@ public final class CuatroXCuatro implements Movil {
     public void rotarMovil(Jugador jugador){
         jugador.setMovil(new Moto());
     }
+    
+    @Override
+    public String toString(){
+        return "CuatroXCuatro";
+    }
 
 }

@@ -1,6 +1,7 @@
 package vista.componentes;
 
 import java.awt.image. BufferedImage;
+
 import vista.imagenes.Imagenes;
 import modelo.general.Mapa;
 

@@ -24,5 +24,10 @@ public final class Automovil implements Movil {
     public void rotarMovil(Jugador jugador){
         jugador.setMovil(new CuatroXCuatro());
     }
+    
+    @Override
+    public String toString(){
+        return "Automovil";
+    }
 
 }
