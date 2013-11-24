@@ -13,11 +13,22 @@ public class Mapa {
 	private static Mapa singleton;
 
 	private List<Evento> eventos = new ArrayList<Evento>();
-	private Integer dimensionEnX = 20;
-	private Integer dimensionEnY = 20;
+	private Integer dimensionEnX;
+	private Integer dimensionEnY;
 
-	private Mapa() {
+	private Mapa(){
+	    // Dimensiones por defecto.
+	    this.dimensionEnX = 20;
+	    this.dimensionEnY = 20;
 	}
+	
+	public void setAncho(int ancho){
+	    this.dimensionEnX = Integer.valueOf(ancho);
+	}
+	
+	public void setAlto(int alto){
+        this.dimensionEnY = Integer.valueOf(alto);
+    }
 
 	public static Mapa getInstance() {
 		if (singleton == null) {

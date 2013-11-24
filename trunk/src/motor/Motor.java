@@ -24,6 +24,7 @@ public class Motor {
 	
 	public static void inicializarGUI(){
 		ventanaPrincipal = new FramePrincipal();
+		//ventanaPrincipal.setPanel(new PanelBienvenida(ventanaPrincipal));
 		ventanaPrincipal.setPanel(new PanelMapa(ventanaPrincipal));
 		ventanaPrincipal.mostrar();
 	}
