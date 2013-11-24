@@ -1,43 +1,48 @@
 package vista.componentes;
 
-import javax.swing.JPanel;
 import java.awt.image. BufferedImage;
-import java.io.File;
-import javax.imageio.ImageIO;
+import vista.imagenes.Imagenes;
+import modelo.general.Mapa;
+
 import java.awt.Graphics;
-import java.io.IOException;
 
-public class PanelMapa extends JPanel{
+public class PanelMapa extends PanelCentrado {
 
-    private BufferedImage image;
-    protected FramePrincipal framePrincipal;
+    private static final long serialVersionUID = 1L;
     
-    private Integer DistanciaEntreCuadras = 50;
-    private Integer CuadrasEnX = 7;
-    private Integer CuadrasEnY = 3; //numeros para probar, despues se las asigna con un set
+    private final int DISTANCIA_ENTRE_CUADRAS = 40; // px
+    private int cuadrasEnX;
+    private int cuadrasEnY;
     
     public PanelMapa(FramePrincipal framePrincipal) {
-        this.framePrincipal = framePrincipal;
-       try {                
-          image = ImageIO.read(new File("Imagenes/cuadra.png"));
-       } catch (IOException ex) {
-           System.out.println("No encontro la imagen");
-           // excepcion si no encuentra la imagen
-       }
+       super(framePrincipal);
+       configurarMapa();
+    }
+    
+    private void configurarMapa(){
+        Mapa mapa = Mapa.getInstance();
+        this.cuadrasEnX = mapa.getAncho() + 1;
+        this.cuadrasEnY = mapa.getAlto() + 1;
     }
 
     @Override
     protected void paintComponent(Graphics grafico) {
+        super.paintComponent(grafico);
+        pintarCuadras(grafico);
+    }
+    
+    private void pintarCuadras(Graphics grafico){
         int auxEnX=0;
         int auxEnY=0;
-        super.paintComponent(grafico);
-        for (int i=0; i<CuadrasEnX; i++) {
-            for (int j=0; j<CuadrasEnY; j++) {
-                grafico.drawImage(image, auxEnX, auxEnY+DistanciaEntreCuadras, null);
-                auxEnY=auxEnY+DistanciaEntreCuadras;
+        BufferedImage imagenCuadra = Imagenes.CUADRA.obtenerImagen();
+        for (int i=0; i < cuadrasEnX; i++) {
+            for (int j=0; j < cuadrasEnY; j++) {
+                grafico.drawImage(imagenCuadra, auxEnX, auxEnY+DISTANCIA_ENTRE_CUADRAS, null);
+                auxEnY=auxEnY+DISTANCIA_ENTRE_CUADRAS;
             }
-            auxEnX=auxEnX+DistanciaEntreCuadras;
+            auxEnX=auxEnX+DISTANCIA_ENTRE_CUADRAS;
             auxEnY=0;
         }
     }
+    
 }
