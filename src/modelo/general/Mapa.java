@@ -26,6 +26,14 @@ public class Mapa {
 		return singleton;
 	}
 	
+	public int getAncho(){
+	    return dimensionEnX.intValue();
+	}
+	
+	public int getAlto(){
+	    return dimensionEnY.intValue();
+	}
+	
 	public void addEvento(Evento e) {
 		Posicion posicionDeEvento = e.getPosicion();
 		if (this.getEvento(posicionDeEvento) == null){
