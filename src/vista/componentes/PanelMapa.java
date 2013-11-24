@@ -29,6 +29,8 @@ public class PanelMapa extends PanelCentrado {
     protected void paintComponent(Graphics grafico) {
         super.paintComponent(grafico);
         pintarCuadras(grafico);
+        pintarEventos(grafico);
+        pintarJugador(grafico);
     }
     
     private void pintarCuadras(Graphics grafico){
@@ -43,6 +45,14 @@ public class PanelMapa extends PanelCentrado {
             auxEnX=auxEnX+DISTANCIA_ENTRE_CUADRAS;
             auxEnY=0;
         }
+    }
+    
+    private void pintarEventos(Graphics grafico){
+        // PINTAR EVENTOS        
+    }
+    
+    private void pintarJugador(Graphics jugador){
+        // PINTAR AL JUGADOR
     }
     
 }
