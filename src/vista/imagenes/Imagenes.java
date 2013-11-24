@@ -8,9 +8,9 @@ import javax.imageio.ImageIO;
 
 public enum Imagenes {
     CUADRA("Imagenes/cuadra.png"),
-    AUTOMOVIL("Imagenes/automovil.png"),
-    MOTO("Imagenes/moto.png"),
-    CUATRO_X_CUATRO("Imagenes/cuatroporcuatro.png");
+    AUTOMOVIL("Imagenes/Automovil.png"),
+    MOTO("Imagenes/Moto.png"),
+    CUATRO_X_CUATRO("Imagenes/CuatroXCuatro.png");
     
     private String ruta;
     
@@ -19,6 +19,15 @@ public enum Imagenes {
     }
     
     public BufferedImage obtenerImagen(){
+        return Imagenes.imagenEnRuta(ruta);
+    }
+    
+    public static BufferedImage pngDesdeObjeto(Object objeto){
+        String ruta = "Imagenes/" + objeto.toString() + ".png";
+        return Imagenes.imagenEnRuta(ruta);
+    }
+    
+    public static BufferedImage imagenEnRuta(String ruta){
         BufferedImage imagen = null;
         try {                
             imagen = ImageIO.read(new File(ruta));
