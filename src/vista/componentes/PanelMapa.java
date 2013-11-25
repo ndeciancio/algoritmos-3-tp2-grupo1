@@ -92,9 +92,13 @@ public class PanelMapa extends PanelCentrado {
     }
     
     private void pintarEvento(Evento evento,Graphics grafico) {
+        
         Posicion coordenada = calcularCoordenadas(evento.getPosicion());
         BufferedImage imagenEvento = Imagenes.pngDesdeObjeto(evento);
-        grafico.drawImage(imagenEvento, coordenada.getCoordenadaX(), coordenada.getCoordenadaY(), null);
+        int centradoEnX= imagenEvento.getWidth()/2;
+        int centradoEnY= imagenEvento.getHeight()/2;
+        grafico.drawImage(imagenEvento, coordenada.getCoordenadaX() + centradoEnX, coordenada.getCoordenadaY() + centradoEnY, null);
+        
         
     }
     private void pintarJugador(Graphics jugador){
