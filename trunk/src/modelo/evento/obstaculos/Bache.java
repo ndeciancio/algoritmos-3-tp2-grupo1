@@ -13,5 +13,10 @@ public class Bache extends Obstaculo{
     public void interactuarCon(Jugador jugador){
         jugador.getMovil().cruzarBache(jugador);
     }
+    
+    @Override
+    public String toString(){
+        return "Bache";
+    }
 
 }

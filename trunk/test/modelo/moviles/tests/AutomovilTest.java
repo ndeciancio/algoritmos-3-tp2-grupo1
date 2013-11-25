@@ -7,6 +7,7 @@ import modelo.general.Posicion;
 import modelo.juego.Jugador;
 import modelo.moviles.Automovil;
 import modelo.moviles.CuatroXCuatro;
+import modelo.moviles.Movil;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -45,5 +46,12 @@ public class AutomovilTest {
 		unAuto.rotarMovil(unJugador);
 		assertTrue( (unJugador.getMovil()) instanceof CuatroXCuatro);
 	}
+    
+    @Test
+    public void testComoString(){
+        Movil unAuto = new Automovil();
+        
+        assertEquals(unAuto.toString(), "Automovil");
+    }
     
 }

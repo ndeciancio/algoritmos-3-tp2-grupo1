@@ -27,5 +27,10 @@ public class MetaAlcanzada extends Evento {
         memory.nuevaPuntuacion(nombre, puntuacion);
         // Mandar la vista a la pantalla de victoria.
     }
+    
+    @Override
+    public String toString(){
+        return "Meta";
+    }
 
 }

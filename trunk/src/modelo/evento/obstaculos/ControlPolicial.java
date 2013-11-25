@@ -13,5 +13,10 @@ public class ControlPolicial extends Obstaculo {
     public void interactuarCon(Jugador jugador){
         jugador.getMovil().cruzarControlPolicial(jugador);
     }
+    
+    @Override
+    public String toString(){
+        return "ControlPolicial";
+    }
 
 }

@@ -13,5 +13,10 @@ public class RotacionDeVehiculo extends Sorpresa {
     public void interactuarCon(Jugador jugador) {
     	jugador.getMovil().rotarMovil(jugador);        
     }
+    
+    @Override
+    public String toString(){
+        return "RotacionDeVehiculo";
+    }
 
 }
