@@ -6,6 +6,9 @@ import vista.imagenes.Imagenes;
 import modelo.evento.Evento;
 import modelo.general.Mapa;
 import modelo.general.Posicion;
+import modelo.juego.Juego;
+import modelo.juego.Jugador;
+import modelo.moviles.Movil;
 
 import java.awt.Graphics;
 import java.util.Iterator;
@@ -98,11 +101,15 @@ public class PanelMapa extends PanelCentrado {
         int centradoEnX= imagenEvento.getWidth()/2;
         int centradoEnY= imagenEvento.getHeight()/2;
         grafico.drawImage(imagenEvento, coordenada.getCoordenadaX() + centradoEnX, coordenada.getCoordenadaY() + centradoEnY, null);
-        
-        
-    }
-    private void pintarJugador(Graphics jugador){
-        // PINTAR AL JUGADOR
+    }        
+
+    private void pintarJugador(Graphics grafico){
+        Juego juego = Juego.getInstance();
+        Jugador jugador = juego.getJugador();
+        Movil movil = jugador.getMovil();
+        BufferedImage imagenMovil = Imagenes.pngDesdeObjeto(movil);
+        Posicion coordenada = calcularCoordenadas(jugador.getPosicionActual());
+        grafico.drawImage(imagenMovil, coordenada.getCoordenadaX() , coordenada.getCoordenadaY() , null);
     }
     
 }
