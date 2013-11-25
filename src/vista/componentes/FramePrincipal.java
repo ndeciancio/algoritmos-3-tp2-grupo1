@@ -10,7 +10,7 @@ public class FramePrincipal extends JFrame {
 	private static final long serialVersionUID = 1L;
 	
 	private final String TITULO = "GPS Challenge";
-	private final Dimension DIMENSIONES = new Dimension(480, 320);
+	private final Dimension DIMENSIONES = new Dimension(800, 800);
 	
 	public FramePrincipal(){
 		configurarPropiedades();
