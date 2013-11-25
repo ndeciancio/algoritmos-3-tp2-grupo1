@@ -45,11 +45,15 @@ public class Mapa {
 	    return dimensionEnY.intValue();
 	}
 	
-	public void addEvento(Evento e) {
-		Posicion posicionDeEvento = e.getPosicion();
-		if (this.getEvento(posicionDeEvento) == null){
-		eventos.add(e);
+	public List<Evento> getEventos() {
+	    return eventos;
 	}
+	
+	public void addEvento(Evento e) {
+	    Posicion posicionDeEvento = e.getPosicion();
+	    if (this.getEvento(posicionDeEvento) == null){
+	    eventos.add(e);
+	    }
 	}
 	
 	public boolean tieneEvento(){

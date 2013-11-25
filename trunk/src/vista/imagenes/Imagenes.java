@@ -23,7 +23,7 @@ public enum Imagenes {
     }
     
     public static BufferedImage pngDesdeObjeto(Object objeto){
-        String ruta = "Imagenes/" + objeto.toString() + ".png";
+        String ruta = "Imagenes/" + objeto.getClass().getSimpleName() + ".png";
         return Imagenes.imagenEnRuta(ruta);
     }
     
