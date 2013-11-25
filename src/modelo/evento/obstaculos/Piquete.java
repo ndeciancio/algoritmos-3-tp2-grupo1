@@ -13,5 +13,10 @@ public class Piquete extends Obstaculo {
     public void interactuarCon(Jugador jugador){
         jugador.getMovil().cruzarPiquete(jugador);
     }
+    
+    @Override
+    public String toString(){
+        return "Piquete";
+    }
 
 }

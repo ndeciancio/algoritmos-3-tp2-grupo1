@@ -15,4 +15,9 @@ public class ReduccionDeMovimientos extends Sorpresa {
         jugador.sumarMovimientos(-movimientosRestados);
     }
 
+    @Override
+    public String toString(){
+        return "ReduccionDeMovimientos";
+    }
+    
 }
