@@ -10,27 +10,79 @@ import modelo.juego.Juego;
 import modelo.juego.Jugador;
 import modelo.moviles.Movil;
 
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
 import java.awt.Graphics;
 import java.util.Iterator;
 import java.util.List;
 
-public class PanelMapa extends PanelCentrado {
+import javax.swing.JButton;
+
+import controladores.ControladorBotonMoverDerecha;
+import controladores.ControladorBotonMoverAbajo;
+import controladores.ControladorBotonMoverIzquierda;
+import controladores.ControladorBotonMoverArriba;
+
+public class PanelMapa extends JPanel {
 
     private static final long serialVersionUID = 1L;
     
+    protected FramePrincipal framePrincipal;
     private final int DISTANCIA_ENTRE_CUADRAS = 40; // px
     private int cuadrasEnX;
     private int cuadrasEnY;
     
     public PanelMapa(FramePrincipal framePrincipal) {
-       super(framePrincipal);
+       this.framePrincipal = framePrincipal;
        configurarMapa();
+       configurarComponentes();
     }
     
     private void configurarMapa(){
         Mapa mapa = Mapa.getInstance();
         this.cuadrasEnX = (mapa.getAncho() + 3) /2;
         this.cuadrasEnY = (mapa.getAlto() + 3) /2;
+    }
+    
+    private JButton crearBotonMoverAbajo(){
+        JButton boton = new JButton("Abajo");
+        boton.addActionListener(new ControladorBotonMoverAbajo(framePrincipal));
+        return boton;
+    }
+    
+    private JButton crearBotonMoverDerecha(){
+        JButton boton = new JButton("Derecha");
+        boton.addActionListener(new ControladorBotonMoverDerecha(framePrincipal));
+        return boton;
+    }
+    
+    private JButton crearBotonMoverIzquierda(){
+        JButton boton = new JButton("Izquierda");
+        boton.addActionListener(new ControladorBotonMoverIzquierda(framePrincipal));
+        return boton;
+    }
+    
+    private JButton crearBotonMoverArriba(){
+        JButton boton = new JButton("Arriba");
+        boton.addActionListener(new ControladorBotonMoverArriba(framePrincipal));
+        return boton;
+    }
+    
+    private JLabel crearLabelMovimientos(){
+        Juego juego = Juego.getInstance();
+        Jugador jugador = juego.getJugador();
+        int cantidadDeMovimientos = jugador.getMovimientos();
+        JLabel label = new JLabel("Movimientos: " + cantidadDeMovimientos);
+        return label;
+    }
+    
+    protected void configurarComponentes(){
+        this.add(crearBotonMoverIzquierda());
+        this.add(crearBotonMoverAbajo());
+        this.add(crearBotonMoverArriba());
+        this.add(crearBotonMoverDerecha());     
+        this.add(crearLabelMovimientos());
     }
 
     @Override
