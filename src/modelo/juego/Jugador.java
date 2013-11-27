@@ -107,7 +107,7 @@ public class Jugador {
 	}
 
 	public void moverAbajo(){
-        if(this.puedeMoverse(new Posicion(posicionActual.getCoordenadaX()+2,posicionActual.getCoordenadaY()+2))){
+        if(this.puedeMoverse(new Posicion(posicionActual.getCoordenadaX(),posicionActual.getCoordenadaY()+2))){
 			recordarPosicion();
 	        posicionActual.sety(posicionActual.getCoordenadaY() + 2);
 	        Posicion posicionEvento = new Posicion(posicionActual.getCoordenadaX(),posicionActual.getCoordenadaY()-1);

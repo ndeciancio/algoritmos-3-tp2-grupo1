@@ -21,8 +21,8 @@ public class ControladorBotonMoverAbajo implements ActionListener {
         Juego juego = Juego.getInstance();
         Jugador jugador = juego.getJugador();
         jugador.moverAbajo();
+        framePrincipal.revalidate();
         framePrincipal.repaint();
-        framePrincipal.revalidate();        
     }
     
 }

@@ -32,6 +32,7 @@ public class PanelMapa extends JPanel {
     private final int DISTANCIA_ENTRE_CUADRAS = 40; // px
     private int cuadrasEnX;
     private int cuadrasEnY;
+    private JLabel labelMovimientos;
     
     public PanelMapa(FramePrincipal framePrincipal) {
        this.framePrincipal = framePrincipal;
@@ -73,8 +74,8 @@ public class PanelMapa extends JPanel {
         Juego juego = Juego.getInstance();
         Jugador jugador = juego.getJugador();
         int cantidadDeMovimientos = jugador.getMovimientos();
-        JLabel label = new JLabel("Movimientos: " + cantidadDeMovimientos);
-        return label;
+        labelMovimientos = new JLabel("Movimientos: " + cantidadDeMovimientos);
+        return labelMovimientos;
     }
     
     protected void configurarComponentes(){
@@ -91,6 +92,12 @@ public class PanelMapa extends JPanel {
         pintarCuadras(grafico);
         pintarEventos(grafico);
         pintarJugador(grafico);
+        actualizarMovimientos();
+    }
+    
+    private void actualizarMovimientos(){
+        int movimientos = Juego.getInstance().getJugador().getMovimientos();
+        labelMovimientos.setText("Movimientos: " + Integer.toString(movimientos));
     }
     
     private void pintarCuadras(Graphics grafico){
@@ -114,9 +121,12 @@ public class PanelMapa extends JPanel {
     }
     
     private int calcularYParaCentrarElMapa(){
+        /*
         int altoVentana = framePrincipal.getHeight();
         int altoMapa = calcularAltoDelGraficoDelMapa();
         return ((altoVentana - altoMapa)/2);
+        */
+        return 50;
     }
     
     private Posicion calcularCoordenadas (Posicion posicion) {
