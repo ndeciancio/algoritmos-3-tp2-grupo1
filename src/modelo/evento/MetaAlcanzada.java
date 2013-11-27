@@ -5,11 +5,8 @@ import modelo.juego.Jugador;
 import modelo.persistencia.FachadaPersistencia;
 
 public class MetaAlcanzada extends Evento {
-
-    Juego juego;
     
-    public MetaAlcanzada(Juego juego){
-        this.juego = juego;
+    public MetaAlcanzada(){
     }
     
     @Override
@@ -19,7 +16,7 @@ public class MetaAlcanzada extends Evento {
     }
     
     private int calcularPuntuacion(int movimientos){
-        return juego.getDificultad().calcularPuntuacion(movimientos);
+        return Juego.getInstance().getDificultad().calcularPuntuacion(movimientos);
     }
     
     private void guardarPuntuacion(String nombre, int puntuacion){

@@ -16,7 +16,7 @@ public class EventoTest {
 
 	@Before
 	public void setUp(){
-	    Mapa.getInstance().resetear();
+	    Mapa.getInstance().ponerPorDefecto();
 	}
     
 	@Test

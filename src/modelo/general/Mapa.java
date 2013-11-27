@@ -5,6 +5,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import modelo.evento.Evento;
+import modelo.evento.MetaAlcanzada;
 
 
 
@@ -15,11 +16,10 @@ public class Mapa {
 	private List<Evento> eventos = new ArrayList<Evento>();
 	private Integer dimensionEnX;
 	private Integer dimensionEnY;
+	Evento meta;
 
 	private Mapa(){
-	    // Dimensiones por defecto.
-	    this.dimensionEnX = 20;
-	    this.dimensionEnY = 20;
+	    ponerPorDefecto();
 	}
 	
 	public void setAncho(int ancho){
@@ -75,8 +75,12 @@ public class Mapa {
 		return event;
 	}
 
-    public void resetear(){
+    public void ponerPorDefecto(){
+        // Dimensiones por defecto.
+        this.dimensionEnX = 20;
+        this.dimensionEnY = 20;
         eventos.clear();
+        generarMeta();
     }
 	    
     public boolean hayMapaEnX(Posicion posicion){
@@ -86,5 +90,26 @@ public class Mapa {
     public boolean hayMapaEnY(Posicion posicion){
     	return ((posicion.getCoordenadaY() >= 0) && (posicion.getCoordenadaY() < this.dimensionEnY));
     }
+    
+    public void generarMeta(){
+        int posicionEnX = generarEnteroAlAzarEntreCeroY(dimensionEnX - 1);
+        int posicionEnY = generarEnteroAlAzarEntreCeroY(dimensionEnY - 1);
+        MetaAlcanzada meta = new MetaAlcanzada();
+        meta.setPosicion(new Posicion(posicionEnX, posicionEnY));
+        this.addEvento(meta);
+        this.meta = meta;
+    }
+    
+    public boolean estaEnMeta(Posicion posicion){
+        return meta.getPosicion().equals(posicion);
+    }
+    
+    private int generarEnteroAlAzarEntreCeroY(int maximo){
+        int entero = (int)(Math.random() * maximo + 1);
+        if(entero%2 != 0 && entero != 0)
+            entero--;
+        return entero;
+    }
+    
 }
 

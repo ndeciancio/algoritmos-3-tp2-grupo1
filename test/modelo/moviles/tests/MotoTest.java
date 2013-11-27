@@ -14,7 +14,7 @@ public class MotoTest {
 
 		@Before
 			public void setUp(){
-			Mapa.getInstance().resetear();
+			Mapa.getInstance().ponerPorDefecto();
 		}
 		
 	    @Test

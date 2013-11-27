@@ -17,9 +17,7 @@ public class Motor {
 	}
 	
 	public static void inicializarJuegoConOpcionesPorDefecto(){
-	    Juego juego = Juego.getInstance();
-	    juego.setJugador(Jugador.crearPorDefecto());
-	    juego.setDificultad(Juego.Dificultad.MODERADO);
+	    Juego.getInstance().reiniciar();
 	}
 	
 	public static void inicializarGUI(){

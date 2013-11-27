@@ -11,7 +11,7 @@ public class JuegoTest {
 
     @Before
     public void setUp(){
-        Juego.reiniciar();
+        Juego.getInstance().reiniciar();
     }
     
     @Test

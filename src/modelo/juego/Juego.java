@@ -14,9 +14,10 @@ public class Juego {
         return instancia;
     }
     
-    public static void reiniciar(){
-        instancia.setDificultad(null);
-        instancia.setJugador(null);
+    public void reiniciar(){
+        // Opciones por defecto...
+        instancia.setDificultad(Juego.Dificultad.MODERADO);
+        instancia.setJugador(Jugador.crearPorDefecto());
     }
     
     public void setJugador(Jugador jugador){

@@ -24,7 +24,7 @@ public class MetaAlcanzadaTest {
         jugador = new Jugador(new Posicion(0, 0), new Automovil());
         jugador.setNombre("Juancito");
         juego = Juego.getInstance();
-        Juego.reiniciar();
+        Juego.getInstance().reiniciar();
         juego.setDificultad(Juego.Dificultad.MODERADO);
         memoryCard = new FachadaPersistencia();
         memoryCard.borrarPuntuaciones();
@@ -32,7 +32,7 @@ public class MetaAlcanzadaTest {
     
     @Test
     public void test_lasPartidasSeGuardanCorrectamente() {        
-        MetaAlcanzada evento = new MetaAlcanzada(juego);
+        MetaAlcanzada evento = new MetaAlcanzada();
         evento.interactuarCon(jugador);
         TablaDePuntuaciones tabla = memoryCard.cargarPuntuaciones();
         memoryCard.borrarPuntuaciones();

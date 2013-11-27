@@ -68,6 +68,7 @@ public class Jugador {
         if(this.puedeMoverse(new Posicion(posicionActual.getCoordenadaX()+2,posicionActual.getCoordenadaY()))){	
 			recordarPosicion();
 	        posicionActual.setx(posicionActual.getCoordenadaX() + 2);
+	        verificarMeta();
 	        Posicion posicionEvento = new Posicion(posicionActual.getCoordenadaX()-1,posicionActual.getCoordenadaY());
 	        if (unMapa.tieneEvento(posicionEvento)){
 	        	this.movimientos++;
@@ -82,6 +83,7 @@ public class Jugador {
         if(this.puedeMoverse(new Posicion(posicionActual.getCoordenadaX()-2,posicionActual.getCoordenadaY()))){
 			recordarPosicion();
 	        posicionActual.setx(posicionActual.getCoordenadaX() - 2);
+	        verificarMeta();
 	        Posicion posicionEvento = new Posicion(posicionActual.getCoordenadaX() + 1,posicionActual.getCoordenadaY());
 	        if (unMapa.tieneEvento(posicionEvento)){
 	        	this.movimientos++;
@@ -96,6 +98,7 @@ public class Jugador {
         if(this.puedeMoverse(new Posicion(posicionActual.getCoordenadaX(),posicionActual.getCoordenadaY()-2))){
 			recordarPosicion();
 	        posicionActual.sety(posicionActual.getCoordenadaY() - 2);
+	        verificarMeta();
 	        Posicion posicionEvento = new Posicion(posicionActual.getCoordenadaX(),posicionActual.getCoordenadaY()+1);
 	        if (unMapa.tieneEvento(posicionEvento)){
 	        	this.movimientos++;
@@ -110,6 +113,7 @@ public class Jugador {
         if(this.puedeMoverse(new Posicion(posicionActual.getCoordenadaX(),posicionActual.getCoordenadaY()+2))){
 			recordarPosicion();
 	        posicionActual.sety(posicionActual.getCoordenadaY() + 2);
+	        verificarMeta();
 	        Posicion posicionEvento = new Posicion(posicionActual.getCoordenadaX(),posicionActual.getCoordenadaY()-1);
 	        if (unMapa.tieneEvento(posicionEvento)){
 	        	this.movimientos++;
@@ -118,6 +122,12 @@ public class Jugador {
 	        	this.movimientos++;
 	        }   
         }
+	}
+	
+	private void verificarMeta(){
+	    if(unMapa.estaEnMeta(posicionActual)){
+	        interactuarConEventoEnPosicion(posicionActual);
+	    }
 	}
 	
     private void recordarPosicion(){
