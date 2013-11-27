@@ -22,8 +22,8 @@ public class ControladorBotonMoverIzquierda implements ActionListener {
         Juego juego = Juego.getInstance();
         Jugador jugador = juego.getJugador();
         jugador.moverIzquierda();
-        framePrincipal.repaint();
         framePrincipal.revalidate();
+        framePrincipal.repaint();
     }
     
 }

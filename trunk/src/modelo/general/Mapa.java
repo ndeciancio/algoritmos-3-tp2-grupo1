@@ -80,11 +80,11 @@ public class Mapa {
     }
 	    
     public boolean hayMapaEnX(Posicion posicion){
-    	return ((posicion.getCoordenadaX() > 0) && (posicion.getCoordenadaX() <= this.dimensionEnX));
+    	return ((posicion.getCoordenadaX() >= 0) && (posicion.getCoordenadaX() < this.dimensionEnX));
     }
 
     public boolean hayMapaEnY(Posicion posicion){
-    	return ((posicion.getCoordenadaY() > 0) && (posicion.getCoordenadaY() <= this.dimensionEnY));
+    	return ((posicion.getCoordenadaY() >= 0) && (posicion.getCoordenadaY() < this.dimensionEnY));
     }
 }
 
