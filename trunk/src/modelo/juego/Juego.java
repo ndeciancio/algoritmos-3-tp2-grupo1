@@ -55,6 +55,10 @@ public class Juego {
             return puntuacion > 0 ? puntuacion : 0;     
         }
         
+        public int getLimiteDeMovimientos() {
+            return limiteDeMovimientos;
+        }
+        
         public boolean superaElLimiteDeMovimientos(int movimientosRealizados){
             return movimientosRealizados > limiteDeMovimientos;
         }
