@@ -35,6 +35,7 @@ public class PanelMapa extends JPanel {
     private JLabel labelMovimientos;
     
     public PanelMapa(FramePrincipal framePrincipal) {
+       this.setLayout(null);
        this.framePrincipal = framePrincipal;
        configurarMapa();
        configurarComponentes();
@@ -49,24 +50,28 @@ public class PanelMapa extends JPanel {
     private JButton crearBotonMoverAbajo(){
         JButton boton = new JButton("Abajo");
         boton.addActionListener(new ControladorBotonMoverAbajo(framePrincipal));
+        boton.setBounds(665, 200, 100, 50);
         return boton;
     }
     
     private JButton crearBotonMoverDerecha(){
         JButton boton = new JButton("Derecha");
         boton.addActionListener(new ControladorBotonMoverDerecha(framePrincipal));
+        boton.setBounds(710, 150, 100, 50);
         return boton;
     }
     
     private JButton crearBotonMoverIzquierda(){
         JButton boton = new JButton("Izquierda");
         boton.addActionListener(new ControladorBotonMoverIzquierda(framePrincipal));
+        boton.setBounds(610, 150, 100, 50);
         return boton;
     }
     
     private JButton crearBotonMoverArriba(){
         JButton boton = new JButton("Arriba");
         boton.addActionListener(new ControladorBotonMoverArriba(framePrincipal));
+        boton.setBounds(665, 100, 100, 50);
         return boton;
     }
     
@@ -75,6 +80,7 @@ public class PanelMapa extends JPanel {
         Jugador jugador = juego.getJugador();
         int cantidadDeMovimientos = jugador.getMovimientos();
         labelMovimientos = new JLabel("Movimientos: " + cantidadDeMovimientos);
+        labelMovimientos.setBounds(calcularXParaCentrarElMapa(), 0, 200, 50);
         return labelMovimientos;
     }
     
