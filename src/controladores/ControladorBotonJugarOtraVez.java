@@ -18,7 +18,7 @@ public class ControladorBotonJugarOtraVez implements ActionListener {
     
     @Override
     public void actionPerformed(ActionEvent evento) {
-        Juego.getInstance().reiniciar();
+        Juego.getInstance().ponerPorDefecto();
         Mapa.getInstance().ponerPorDefecto();
         framePrincipal.setPanel(new PanelMapa(framePrincipal));
     }

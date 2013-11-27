@@ -15,8 +15,8 @@ public class PanelPerdiste extends PanelCentrado {
     }
     
     protected void configurarComponentes(){
-        
         this.add(crearLabelPerdiste());
+        this.add(crearBotonJugarOtraVez());
     }
 
     private ControladorBotonJugarOtraVez crearControladorJugarOtraVez(){

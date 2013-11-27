@@ -11,7 +11,7 @@ public class JuegoTest {
 
     @Before
     public void setUp(){
-        Juego.getInstance().reiniciar();
+        Juego.getInstance().ponerPorDefecto();
     }
     
     @Test
