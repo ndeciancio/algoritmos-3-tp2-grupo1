@@ -7,6 +7,7 @@ import vista.componentes.FramePrincipal;
 import vista.componentes.PanelBienvenida;
 import vista.componentes.PanelMapa;
 import vista.componentes.PanelGanaste;
+import vista.componentes.PanelPerdiste;
 
 public class Motor {
 
@@ -18,13 +19,13 @@ public class Motor {
 	}
 	
 	public static void inicializarJuegoConOpcionesPorDefecto(){
-	    Juego.getInstance().reiniciar();
+	    Juego.getInstance().ponerPorDefecto();
 	}
 	
 	public static void inicializarGUI(){
 		ventanaPrincipal = new FramePrincipal();
 		//ventanaPrincipal.setPanel(new PanelBienvenida(ventanaPrincipal));
-		ventanaPrincipal.setPanel(new PanelGanaste(ventanaPrincipal));
+		ventanaPrincipal.setPanel(new PanelPerdiste(ventanaPrincipal));
 		ventanaPrincipal.mostrar();
 	}
 	

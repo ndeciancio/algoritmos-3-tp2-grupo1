@@ -24,7 +24,7 @@ public class MetaAlcanzadaTest {
         jugador = new Jugador(new Posicion(0, 0), new Automovil());
         jugador.setNombre("Juancito");
         juego = Juego.getInstance();
-        Juego.getInstance().reiniciar();
+        Juego.getInstance().ponerPorDefecto();
         juego.setDificultad(Juego.Dificultad.MODERADO);
         memoryCard = new FachadaPersistencia();
         memoryCard.borrarPuntuaciones();

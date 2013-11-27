@@ -16,12 +16,10 @@ public class PanelGanaste extends PanelCentrado {
     }
     
     protected void configurarComponentes(){
-        
         this.add(crearLabelGanaste());
         this.add(crearLabelMovimientosRestantes());
         this.add(crearLabelPuntaje());
         this.add(crearBotonJugarOtraVez());
-        
     }
     
     private ControladorBotonJugarOtraVez crearControladorJugarOtraVez(){
