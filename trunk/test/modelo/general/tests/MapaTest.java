@@ -13,7 +13,7 @@ public class MapaTest {
     
     @Before
     public void setUp(){
-        Mapa.getInstance().resetear();
+        Mapa.getInstance().ponerPorDefecto();
     }
 
 	@Test
