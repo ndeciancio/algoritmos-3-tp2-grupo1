@@ -100,8 +100,8 @@ public class Mapa {
         this.meta = meta;
     }
     
-    public boolean estaEnMeta(Posicion posicion){
-        return meta.getPosicion().equals(posicion);
+    public Posicion getPosicionDeLaMeta(){
+        return meta.getPosicion();
     }
     
     private int generarEnteroAlAzarEntreCeroY(int maximo){
