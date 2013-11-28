@@ -18,6 +18,10 @@ public class FramePrincipal extends JFrame {
 	
     public void setPanel(JPanel panel){
         this.setContentPane(panel);
+        this.actualizar();
+    }
+    
+    public void actualizar(){
         this.revalidate();
         this.repaint();
     }

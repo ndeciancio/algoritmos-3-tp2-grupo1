@@ -125,9 +125,14 @@ public class Jugador {
 	}
 	
 	private void verificarMeta(){
-	    if(unMapa.estaEnMeta(posicionActual)){
+	    if(estaEnLaMeta()){
 	        interactuarConEventoEnPosicion(posicionActual);
 	    }
+	}
+	
+	public boolean estaEnLaMeta(){
+	    Posicion posicionDeLaMeta = unMapa.getPosicionDeLaMeta();
+	    return posicionDeLaMeta.equals(posicionActual);
 	}
 	
     private void recordarPosicion(){
