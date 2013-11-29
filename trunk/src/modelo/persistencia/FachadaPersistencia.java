@@ -17,7 +17,7 @@ public class FachadaPersistencia {
 	Document documento;
 	
 	public void cargarPartida(String nombreDelJugador){
-	    abrirArchivo(new File(nombreDelJugador + ".xml"));
+	    abrirArchivo(new File("data/" + nombreDelJugador + ".xml"));
 	    LectorDePartida lector = new LectorDePartida();
 	    lector.cargarPartida(documento);
 	}
