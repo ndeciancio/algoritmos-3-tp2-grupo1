@@ -13,6 +13,7 @@ import modelo.moviles.Movil;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.util.Iterator;
 import java.util.List;
@@ -99,6 +100,8 @@ public class PanelMapa extends JPanel {
         pintarEventos(grafico);
         pintarJugador(grafico);
         actualizarMovimientos();
+        pintarAreaInvisible(grafico);
+        
     }
     
     private void actualizarMovimientos(){
@@ -120,6 +123,36 @@ public class PanelMapa extends JPanel {
         }
     }
     
+    private void pintarAreaInvisible(Graphics grafico){
+        int auxEnX = calcularXParaCentrarElMapa();
+        int auxEnY = calcularYParaCentrarElMapa();
+        BufferedImage imagenAreaInvisible = Imagenes.AREA_INVISIBLE.obtenerImagen();
+        for (int i = 0; i < cuadrasEnX; i++) {
+            for (int j = 0; j < cuadrasEnY; j++) {
+                if (esAreaNegra(auxEnX,auxEnY))
+                    grafico.drawImage(imagenAreaInvisible, auxEnX, auxEnY, null);
+                auxEnY = auxEnY + DISTANCIA_ENTRE_CUADRAS;
+            }
+            auxEnX = auxEnX + DISTANCIA_ENTRE_CUADRAS;
+            auxEnY = calcularYParaCentrarElMapa();
+        }
+    }
+    
+    private boolean esAreaNegra(int x, int y) {
+        Posicion posMeta = calcularCoordenadas (Mapa.getInstance().getPosicionDeLaMeta());
+        Posicion posJugador = calcularCoordenadas(Juego.getInstance().getJugador().getPosicionActual());
+        if ( Math.abs(x - posJugador.getCoordenadaX()) <  DISTANCIA_ENTRE_CUADRAS*2) {
+            if ( Math.abs(y - posJugador.getCoordenadaY()) <  DISTANCIA_ENTRE_CUADRAS*2)
+            return false;
+        }
+        if ( Math.abs(x - posMeta.getCoordenadaX()) <  DISTANCIA_ENTRE_CUADRAS) {
+            if ( Math.abs(y - posMeta.getCoordenadaY()) <  DISTANCIA_ENTRE_CUADRAS)
+            return false;
+        }
+        return true;
+    }
+    
+
     private int calcularXParaCentrarElMapa(){
         int anchoVentana = framePrincipal.getWidth();
         int anchoMapa = calcularAnchoDelGraficoDelMapa();
@@ -143,13 +176,11 @@ public class PanelMapa extends JPanel {
         return coordenadas;
    }
     private int calcularAnchoDelGraficoDelMapa(){
-        int anchoDeUnaCuadra = Imagenes.CUADRA.obtenerImagen().getWidth();
-        return (cuadrasEnX*anchoDeUnaCuadra + (cuadrasEnX - 1)*DISTANCIA_ENTRE_CUADRAS);
+        return ((cuadrasEnX)*DISTANCIA_ENTRE_CUADRAS);
     }
     
     private int calcularAltoDelGraficoDelMapa(){
-        int altoDeUnaCuadra = Imagenes.CUADRA.obtenerImagen().getHeight();
-        return (cuadrasEnY*altoDeUnaCuadra + (cuadrasEnY - 1)*DISTANCIA_ENTRE_CUADRAS);
+        return ((cuadrasEnY)*DISTANCIA_ENTRE_CUADRAS);
     }
     
     private void pintarEventos(Graphics grafico){
