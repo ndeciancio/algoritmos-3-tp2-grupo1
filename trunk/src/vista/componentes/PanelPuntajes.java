@@ -40,8 +40,6 @@ public class PanelPuntajes extends PanelCentrado {
         String texto;
         FachadaPersistencia persistencia = new FachadaPersistencia();
         TablaDePuntuaciones tabla = persistencia.cargarPuntuaciones();
-        tabla.ingresar("Fulano", 6);
-        tabla.ingresar("Mengano", 2);
         Iterator<Entrada> iterador = tabla.iterator();
         for(Iterator<Entrada> i=iterador; i.hasNext(); ) {
             Entrada entrada = i.next();
