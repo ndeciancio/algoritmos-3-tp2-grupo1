@@ -17,10 +17,11 @@ public class FachadaPersistencia {
 	Document documento;
 	
 	public void guardarPartida(String nombreDelJugador){
-	    File archivoPartida = new File("data/" + nombreDelJugador + ".xml");
-	    abrirArchivo(archivoPartida);
-	    EscritorDePartida escritor = new EscritorDePartida();
 	    try{
+	        File archivoPartida = new File("data/" + nombreDelJugador + ".xml");
+	        archivoPartida.createNewFile();
+	        abrirArchivo(archivoPartida);
+	        EscritorDePartida escritor = new EscritorDePartida();
 	        escritor.guardarPartida(documento, archivoPartida);
 	    } catch(Exception e) {
 	        e.printStackTrace();
