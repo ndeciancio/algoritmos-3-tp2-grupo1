@@ -24,6 +24,7 @@ import controladores.ControladorBotonMoverDerecha;
 import controladores.ControladorBotonMoverAbajo;
 import controladores.ControladorBotonMoverIzquierda;
 import controladores.ControladorBotonMoverArriba;
+import controladores.ControladorBotonGuardarPartida;
 
 public class PanelMapa extends JPanel {
 
@@ -76,6 +77,14 @@ public class PanelMapa extends JPanel {
         return boton;
     }
     
+
+    private JButton crearBotonGuardar(){
+        JButton boton = new JButton("Guardar Partida");
+        boton.addActionListener(new ControladorBotonGuardarPartida());
+        boton.setBounds(calcularXParaCentrarElMapa() + 300, 12, 150, 25);
+        return boton;
+    }
+    
     private JLabel crearLabelMovimientos(){
         Juego juego = Juego.getInstance();
         Jugador jugador = juego.getJugador();
@@ -85,12 +94,22 @@ public class PanelMapa extends JPanel {
         return labelMovimientos;
     }
     
+    private JLabel crearLabelMovimientosLimite(){
+        int cantidadDeMovimientos = Juego.getInstance().getDificultad().getLimiteDeMovimientos();;
+        JLabel labelMovimientosLimites = new JLabel("Movimientos Limites: " + cantidadDeMovimientos);
+        labelMovimientosLimites.setBounds(calcularXParaCentrarElMapa()+ 125, 0, 200, 50);
+        labelMovimientosLimites.setForeground(Color.RED);
+        return labelMovimientosLimites;
+    }
+    
     protected void configurarComponentes(){
         this.add(crearBotonMoverIzquierda());
         this.add(crearBotonMoverAbajo());
         this.add(crearBotonMoverArriba());
         this.add(crearBotonMoverDerecha());     
+        this.add(crearBotonGuardar());
         this.add(crearLabelMovimientos());
+        this.add(crearLabelMovimientosLimite());
     }
 
     @Override
