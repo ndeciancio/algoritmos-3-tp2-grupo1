@@ -1,6 +1,0 @@
-<partida dificultad="FACIL">
-
-    <jugador movimientos="20" x="6" y="6" movil="Automovil" />
-    <meta x="2" y="2" />
-
-</partida>

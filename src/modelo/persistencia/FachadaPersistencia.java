@@ -18,7 +18,7 @@ public class FachadaPersistencia {
 	
 	public void guardarPartida(String nombreDelJugador){
 	    try{
-	        File archivoPartida = new File("data/" + nombreDelJugador + ".xml");
+	        File archivoPartida = new ArchivoPartida(nombreDelJugador);
 	        archivoPartida.createNewFile();
 	        abrirArchivo(archivoPartida);
 	        EscritorDePartida escritor = new EscritorDePartida();
