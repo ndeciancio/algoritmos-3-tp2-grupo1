@@ -1,5 +1,6 @@
 package modelo.evento.obstaculos;
 
+import modelo.evento.Evento;
 import modelo.general.Posicion;
 import modelo.juego.Jugador;
 
@@ -17,6 +18,11 @@ public class Bache extends Obstaculo{
     @Override
     public String toString(){
         return "Bache";
+    }
+    
+    @Override 
+    public Evento copiar(){
+        return new Bache(posicion);
     }
 
 }

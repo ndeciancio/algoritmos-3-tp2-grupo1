@@ -13,6 +13,7 @@ import org.w3c.dom.NodeList;
 public class CreadorDeMapa {
 
     public void cargarMapa(Document documentoXML){
+        Mapa.getInstance().limpiarEventos();
         Node nodoMapa = documentoXML.getDocumentElement();
         cargarPropiedades((Element)nodoMapa);
         cargarEventos(nodoMapa);
@@ -47,9 +48,8 @@ public class CreadorDeMapa {
     }
     
     private Evento cargarEvento(Element evento, Posicion posicion){
-        FabricaDeEventos fabrica = new FabricaDeEventos();
         String nombre = evento.getAttribute("nombre");
-        return fabrica.desdeString(nombre, posicion);
+        return FabricaDeEventos.desdeString(nombre, posicion);
     }
     
     private boolean esElemento(Node nodo){

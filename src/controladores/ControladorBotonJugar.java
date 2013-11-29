@@ -21,14 +21,9 @@ public class ControladorBotonJugar implements ActionListener {
     
     @Override
     public void actionPerformed(ActionEvent evento) {
-        limpiarMapa();
         cargarMapa();
         generarPosiciones();
         framePrincipal.setPanel(new PanelMapa(framePrincipal));
-    }
-    
-    private void limpiarMapa(){
-        Mapa.getInstance().limpiarEventos();
     }
     
     private void cargarMapa(){

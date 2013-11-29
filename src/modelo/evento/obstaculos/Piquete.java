@@ -1,5 +1,6 @@
 package modelo.evento.obstaculos;
 
+import modelo.evento.Evento;
 import modelo.general.Posicion;
 import modelo.juego.Jugador;
 
@@ -17,6 +18,11 @@ public class Piquete extends Obstaculo {
     @Override
     public String toString(){
         return "Piquete";
+    }
+    
+    @Override 
+    public Evento copiar(){
+        return new Piquete(posicion);
     }
 
 }

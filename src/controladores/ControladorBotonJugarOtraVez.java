@@ -4,7 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import vista.componentes.FramePrincipal;
-import vista.componentes.PanelComenzarPartida;
+import vista.componentes.PanelBienvenida;
 import modelo.juego.Juego;
 import modelo.general.Mapa;
 
@@ -20,7 +20,7 @@ public class ControladorBotonJugarOtraVez implements ActionListener {
     public void actionPerformed(ActionEvent evento) {
         Juego.getInstance().ponerPorDefecto();
         Mapa.getInstance().ponerPorDefecto();
-        framePrincipal.setPanel(new PanelComenzarPartida(framePrincipal));
+        framePrincipal.setPanel(new PanelBienvenida(framePrincipal));
     }
     
 }

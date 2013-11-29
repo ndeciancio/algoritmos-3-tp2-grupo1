@@ -16,4 +16,5 @@ public abstract class Evento {
 	}
 	
 	public abstract void interactuarCon(Jugador jugador);
+	public abstract Evento copiar();
 }
