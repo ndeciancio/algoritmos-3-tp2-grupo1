@@ -1,5 +1,6 @@
 package modelo.evento.sorpresas;
 
+import modelo.evento.Evento;
 import modelo.general.Posicion;
 import modelo.juego.Jugador;
 
@@ -17,6 +18,11 @@ public class RotacionDeVehiculo extends Sorpresa {
     @Override
     public String toString(){
         return "RotacionDeVehiculo";
+    }
+    
+    @Override 
+    public Evento copiar(){
+        return new RotacionDeVehiculo(posicion);
     }
 
 }

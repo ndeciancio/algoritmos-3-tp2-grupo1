@@ -1,5 +1,7 @@
 package modelo.evento;
 
+import java.util.HashMap;
+
 import modelo.evento.obstaculos.Bache;
 import modelo.evento.obstaculos.ControlPolicial;
 import modelo.evento.obstaculos.Piquete;
@@ -8,59 +10,35 @@ import modelo.evento.sorpresas.ReduccionDeMovimientos;
 import modelo.evento.sorpresas.RotacionDeVehiculo;
 import modelo.general.Posicion;
 
-public class FabricaDeEventos {
+public enum FabricaDeEventos {
+    BACHE                       (new Bache(null)),
+    PIQUETE                     (new Piquete(null)),
+    CONTROL_POLICIAL            (new ControlPolicial(null)),
+    MOVIMIENTOS_ADICIONALES     (new MovimientosAdicionales(null)),
+    ROTACION_DE_VEHICULO        (new RotacionDeVehiculo(null)),
+    REDUCCION_DE_MOVIMIENTOS    (new ReduccionDeMovimientos(null));
     
-    public Evento crearBache(Posicion posicion){
-        return new Bache(posicion);
-    }
-    
-    public Evento crearPiquete(Posicion posicion){
-        return new Piquete(posicion);
-    }
-    
-    public Evento crearControlPolicial(Posicion posicion){
-        return new ControlPolicial(posicion);
-    }
-    
-    public Evento crearMovimientosAdicionales(Posicion posicion){
-        return new MovimientosAdicionales(posicion);
-    }
-    
-    public Evento crearReduccionDeMovimientos(Posicion posicion){
-        return new ReduccionDeMovimientos(posicion);
-    }
-    
-    public Evento crearRotacionDeVehiculo(Posicion posicion){
-        return new RotacionDeVehiculo(posicion);
-    }
-    
-    public Evento desdeString(String nombre, Posicion posicion){
-        
-        switch(nombre){
-        
-        case "Bache": 
-            return crearBache(posicion);
-        
-        case "ControlPolicial": 
-            return crearControlPolicial(posicion);
-        
-        case "Piquete": 
-            return crearPiquete(posicion);
-        
-        case "MovimientosAdicionales": 
-            return crearMovimientosAdicionales(posicion);
-        
-        case "ReduccionDeMovimientos": 
-            return crearReduccionDeMovimientos(posicion);
-        
-        case "RotacionDeVehiculo": 
-            return crearRotacionDeVehiculo(posicion);
-            
-        default:
-            return null;
-            
+    private static HashMap<String, FabricaDeEventos> mapa;
+    static {
+        mapa = new HashMap<String, FabricaDeEventos>();
+        for(FabricaDeEventos entrada : FabricaDeEventos.values()){
+            mapa.put(entrada.evento.toString(), entrada);
         }
-        
     }
     
+    private Evento evento;
+    
+    private FabricaDeEventos(Evento evento){
+        this.evento = evento;
+    }
+    
+    public Evento obtenerEnPosicion(Posicion posicion){
+        Evento devuelto = evento.copiar();
+        devuelto.setPosicion(posicion);
+        return devuelto;
+    }
+    
+    public static Evento desdeString(String eventoString, Posicion posicion){
+        return mapa.get(eventoString).obtenerEnPosicion(posicion);
+    }
 }

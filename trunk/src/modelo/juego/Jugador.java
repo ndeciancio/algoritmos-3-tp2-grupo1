@@ -39,6 +39,11 @@ public class Jugador {
     	return this.vehiculo;
     }
     
+    public void setPosicionInicial(Posicion posicion){
+        this.posicionActual = posicion;
+        this.posicionAnterior = posicion;
+    }
+    
     public Posicion getPosicionActual(){
     	return this.posicionActual;
     }
@@ -50,6 +55,10 @@ public class Jugador {
     
     public Integer getMovimientos(){
     	return this.movimientos;
+    }
+    
+    public void setMovimientos(int movimientos){
+        this.movimientos = movimientos;
     }
     
     public void sumarMovimientos(int movimientos){

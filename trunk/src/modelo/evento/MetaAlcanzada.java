@@ -27,7 +27,12 @@ public class MetaAlcanzada extends Evento {
     
     @Override
     public String toString(){
-        return "Meta";
+        return "MetaAlcanzada";
+    }
+    
+    @Override 
+    public Evento copiar(){
+        return new MetaAlcanzada();
     }
 
 }

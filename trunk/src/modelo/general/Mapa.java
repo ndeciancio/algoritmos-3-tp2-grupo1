@@ -96,8 +96,12 @@ public class Mapa {
     }
     
     public void generarMeta(){
+        this.generarMeta(getPosicionAlAzar());
+    }
+    
+    public void generarMeta(Posicion posicion){
         MetaAlcanzada meta = new MetaAlcanzada();
-        meta.setPosicion(getPosicionAlAzar());
+        meta.setPosicion(posicion);
         this.addEvento(meta);
         this.meta = meta;
     }

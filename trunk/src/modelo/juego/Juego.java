@@ -1,5 +1,7 @@
 package modelo.juego;
 
+import java.util.HashMap;
+
 public class Juego {
     
     private static Juego instancia = new Juego();
@@ -41,6 +43,14 @@ public class Juego {
         MODERADO(50, 2, "data/mapamoderado.xml"),
         DIFICIL(35, 3, "data/mapadificil.xml");
         
+        private static HashMap<String, Dificultad> mapaString;
+        static {
+            mapaString = new HashMap<String, Dificultad>();
+            for(Dificultad dificultad : Dificultad.values()){
+                mapaString.put(dificultad.toString(), dificultad);
+            }
+        }
+        
         private int limiteDeMovimientos;
         private int puntosPorMovimientoSobrante;
         private String archivoDelMapa;
@@ -67,6 +77,10 @@ public class Juego {
         
         public String getArchivoDelMapa(){
             return archivoDelMapa;
+        }
+        
+        public static Dificultad desdeString(String dificultad){
+            return mapaString.get(dificultad);
         }
         
     }

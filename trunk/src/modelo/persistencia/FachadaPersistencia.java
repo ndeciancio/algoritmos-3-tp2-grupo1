@@ -16,6 +16,12 @@ public class FachadaPersistencia {
 	DocumentBuilder builder;
 	Document documento;
 	
+	public void cargarPartida(String nombreDelJugador){
+	    abrirArchivo(new File(nombreDelJugador + ".xml"));
+	    LectorDePartida lector = new LectorDePartida();
+	    lector.cargarPartida(documento);
+	}
+	
 	public void cargarMapa(String archivo){
 	    abrirArchivo(new File(archivo));
 	    CreadorDeMapa creadorDeMapa = new CreadorDeMapa();
