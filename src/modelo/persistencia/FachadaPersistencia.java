@@ -16,6 +16,17 @@ public class FachadaPersistencia {
 	DocumentBuilder builder;
 	Document documento;
 	
+	public void guardarPartida(String nombreDelJugador){
+	    File archivoPartida = new File("data/" + nombreDelJugador + ".xml");
+	    abrirArchivo(archivoPartida);
+	    EscritorDePartida escritor = new EscritorDePartida();
+	    try{
+	        escritor.guardarPartida(documento, archivoPartida);
+	    } catch(Exception e) {
+	        e.printStackTrace();
+	    }
+	}
+	
 	public void cargarPartida(String nombreDelJugador){
 	    abrirArchivo(new File("data/" + nombreDelJugador + ".xml"));
 	    LectorDePartida lector = new LectorDePartida();
