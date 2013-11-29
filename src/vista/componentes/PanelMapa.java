@@ -127,13 +127,13 @@ public class PanelMapa extends JPanel {
         int auxEnX = calcularXParaCentrarElMapa();
         int auxEnY = calcularYParaCentrarElMapa();
         BufferedImage imagenAreaInvisible = Imagenes.AREA_INVISIBLE.obtenerImagen();
-        for (int i = 0; i < cuadrasEnX; i++) {
-            for (int j = 0; j < cuadrasEnY; j++) {
+        for (int i = 0; i < cuadrasEnX*2; i++) {
+            for (int j = 0; j < cuadrasEnY*2; j++) {
                 if (esAreaNegra(auxEnX,auxEnY))
                     grafico.drawImage(imagenAreaInvisible, auxEnX, auxEnY, null);
-                auxEnY = auxEnY + DISTANCIA_ENTRE_CUADRAS;
+                auxEnY = auxEnY + DISTANCIA_ENTRE_CUADRAS/2;
             }
-            auxEnX = auxEnX + DISTANCIA_ENTRE_CUADRAS;
+            auxEnX = auxEnX + DISTANCIA_ENTRE_CUADRAS/2;
             auxEnY = calcularYParaCentrarElMapa();
         }
     }
