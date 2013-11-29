@@ -37,16 +37,18 @@ public class Juego {
     }
 
     public enum Dificultad {
-        FACIL(80, 1),
-        MODERADO(50, 2),
-        DIFICIL(35, 3);
+        FACIL(80, 1, "data/mapafacil.xml"),
+        MODERADO(50, 2, "data/mapamoderado.xml"),
+        DIFICIL(35, 3, "data/mapadificil.xml");
         
         private int limiteDeMovimientos;
         private int puntosPorMovimientoSobrante;
+        private String archivoDelMapa;
         
-        private Dificultad(int limiteDeMovimientos, int puntosPorMovimientoSobrante){
+        private Dificultad(int limiteDeMovimientos, int puntosPorMovimientoSobrante, String archivoDelMapa){
             this.limiteDeMovimientos = limiteDeMovimientos;
             this.puntosPorMovimientoSobrante = puntosPorMovimientoSobrante;
+            this.archivoDelMapa = archivoDelMapa;
         }
         
         public int calcularPuntuacion(int movimientosRealizados){
@@ -61,6 +63,10 @@ public class Juego {
         
         public boolean superaElLimiteDeMovimientos(int movimientosRealizados){
             return movimientosRealizados > limiteDeMovimientos;
+        }
+        
+        public String getArchivoDelMapa(){
+            return archivoDelMapa;
         }
         
     }

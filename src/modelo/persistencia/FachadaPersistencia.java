@@ -16,6 +16,12 @@ public class FachadaPersistencia {
 	DocumentBuilder builder;
 	Document documento;
 	
+	public void cargarMapa(String archivo){
+	    abrirArchivo(new File(archivo));
+	    CreadorDeMapa creadorDeMapa = new CreadorDeMapa();
+	    creadorDeMapa.cargarMapa(documento);
+	}
+	
     public TablaDePuntuaciones cargarPuntuaciones(){
         ArchivoPuntuaciones archivo = null;
         try {

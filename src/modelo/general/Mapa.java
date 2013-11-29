@@ -79,8 +79,12 @@ public class Mapa {
         // Dimensiones por defecto.
         this.dimensionEnX = 20;
         this.dimensionEnY = 20;
-        eventos.clear();
+        limpiarEventos();
         generarMeta();
+    }
+    
+    public void limpiarEventos(){
+        eventos.clear();
     }
 	    
     public boolean hayMapaEnX(Posicion posicion){
@@ -92,16 +96,20 @@ public class Mapa {
     }
     
     public void generarMeta(){
-        int posicionEnX = generarEnteroAlAzarEntreCeroY(dimensionEnX - 1);
-        int posicionEnY = generarEnteroAlAzarEntreCeroY(dimensionEnY - 1);
         MetaAlcanzada meta = new MetaAlcanzada();
-        meta.setPosicion(new Posicion(posicionEnX, posicionEnY));
+        meta.setPosicion(getPosicionAlAzar());
         this.addEvento(meta);
         this.meta = meta;
     }
     
     public Posicion getPosicionDeLaMeta(){
         return meta.getPosicion();
+    }
+    
+    public Posicion getPosicionAlAzar(){
+        int posicionEnX = generarEnteroAlAzarEntreCeroY(dimensionEnX - 1);
+        int posicionEnY = generarEnteroAlAzarEntreCeroY(dimensionEnY - 1);
+        return new Posicion(posicionEnX, posicionEnY);
     }
     
     private int generarEnteroAlAzarEntreCeroY(int maximo){

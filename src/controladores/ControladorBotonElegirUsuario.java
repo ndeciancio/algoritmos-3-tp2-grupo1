@@ -3,11 +3,7 @@ package controladores;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.JFrame;
-
 import modelo.juego.Juego;
-import modelo.juego.Jugador;
-import modelo.persistencia.FachadaPersistencia;
 import vista.componentes.FramePrincipal;
 import vista.componentes.PanelComenzarPartida;
 

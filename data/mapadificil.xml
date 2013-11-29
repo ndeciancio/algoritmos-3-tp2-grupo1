@@ -1,0 +1,4 @@
+<mapa ancho="25" alto="25">
+    <evento nombre="Bache" x="4" y="3" />
+    <evento nombre="ControlPolicial" x="4" y="7" />
+</mapa>

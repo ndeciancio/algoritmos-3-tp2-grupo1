@@ -56,13 +56,13 @@ public class FachadaPersistenciaTest {
 		FachadaPersistencia memory = new FachadaPersistencia();
 		TablaDePuntuaciones puntuaciones = memory.cargarPuntuaciones(archivoPuntuaciones);
 		
-		assertEquals(puntuaciones.entradaEnPosicion(0).getNombre(), "Fulano");
+		assertEquals(puntuaciones.entradaEnPosicion(2).getNombre(), "Fulano");
 		assertEquals(puntuaciones.entradaEnPosicion(1).getNombre(), "Mengano");
-		assertEquals(puntuaciones.entradaEnPosicion(2).getNombre(), "Pepito");
+		assertEquals(puntuaciones.entradaEnPosicion(0).getNombre(), "Pepito");
 		
-		assertEquals(puntuaciones.entradaEnPosicion(0).getPuntuacion(), 8);
+		assertEquals(puntuaciones.entradaEnPosicion(2).getPuntuacion(), 8);
 		assertEquals(puntuaciones.entradaEnPosicion(1).getPuntuacion(), 12);
-		assertEquals(puntuaciones.entradaEnPosicion(2).getPuntuacion(), 16);
+		assertEquals(puntuaciones.entradaEnPosicion(0).getPuntuacion(), 16);
 	}
 	
 	@Test
@@ -71,8 +71,8 @@ public class FachadaPersistenciaTest {
 		memory.nuevaPuntuacion(archivoPuntuaciones, "Juancito", 14);
 		
 		TablaDePuntuaciones puntuaciones = memory.cargarPuntuaciones(archivoPuntuaciones);
-		assertEquals(puntuaciones.entradaEnPosicion(2).getNombre(), "Juancito");
-		assertEquals(puntuaciones.entradaEnPosicion(2).getPuntuacion(), 14);
+		assertEquals(puntuaciones.entradaEnPosicion(1).getNombre(), "Juancito");
+		assertEquals(puntuaciones.entradaEnPosicion(1).getPuntuacion(), 14);
 	}
 	
 	@Test
@@ -81,12 +81,12 @@ public class FachadaPersistenciaTest {
         memory.nuevaPuntuacion(archivoPuntuaciones, "Mengano", 7);
         
         TablaDePuntuaciones puntuaciones = memory.cargarPuntuaciones(archivoPuntuaciones);
-        assertEquals(puntuaciones.entradaEnPosicion(0).getNombre(), "Mengano");
-        assertEquals(puntuaciones.entradaEnPosicion(0).getPuntuacion(), 7);
+        assertEquals(puntuaciones.entradaEnPosicion(2).getNombre(), "Mengano");
+        assertEquals(puntuaciones.entradaEnPosicion(2).getPuntuacion(), 7);
         assertEquals(puntuaciones.entradaEnPosicion(1).getNombre(), "Fulano");
         assertEquals(puntuaciones.entradaEnPosicion(1).getPuntuacion(), 8);
-        assertEquals(puntuaciones.entradaEnPosicion(2).getNombre(), "Pepito");
-        assertEquals(puntuaciones.entradaEnPosicion(2).getPuntuacion(), 16);
+        assertEquals(puntuaciones.entradaEnPosicion(0).getNombre(), "Pepito");
+        assertEquals(puntuaciones.entradaEnPosicion(0).getPuntuacion(), 16);
         assertEquals(puntuaciones.getCantidadDePuntuaciones(), 3);
 	}
 
