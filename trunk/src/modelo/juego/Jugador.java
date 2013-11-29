@@ -149,4 +149,9 @@ public class Jugador {
     	Evento unEvento = unMapa.getEvento(posicionEvento);
     	unEvento.interactuarCon(this);
     }
+    
+    public void generarPosicion(){
+        posicionActual = unMapa.getPosicionAlAzar();
+        posicionAnterior = posicionActual;
+    }
 }

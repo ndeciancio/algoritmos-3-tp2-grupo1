@@ -4,7 +4,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import vista.componentes.FramePrincipal;
-import vista.componentes.PanelIngresarNombre;
 import vista.componentes.PanelNuevaPartida;
 
 public class ControladorBotonComenzarPartida implements ActionListener {

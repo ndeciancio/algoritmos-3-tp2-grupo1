@@ -6,7 +6,6 @@ import javax.swing.JLabel;
 import modelo.juego.Juego;
 import controladores.ControladorBotonJugarOtraVez;
 
-
 public class PanelGanaste extends PanelCentrado {
 
     private static final long serialVersionUID = 1L;
