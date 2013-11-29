@@ -1,7 +1,12 @@
 package vista.componentes;
 
+import java.io.File;
+
 import javax.swing.JButton;
 import javax.swing.JLabel;
+
+import modelo.juego.Juego;
+import modelo.juego.Jugador;
 
 import controladores.ControladorBotonComenzarPartida;
 import controladores.ControladorBotonRetomarPartida;
@@ -47,9 +52,21 @@ public class PanelComenzarPartida extends PanelCentrado {
     
     private JButton crearBotonRetomarPartida(){
         JButton boton = new JButton("Retomar Partida Guardada");
+        verificarPartidaGuardada(boton);
         boton.addActionListener(crearControladorRetomarPartida());
         centrarComponenteEnX(boton);
         return boton;
+    }
+    
+    private void verificarPartidaGuardada(JButton botonJugar){
+        File archivoPartida = new File(partidaDelJugador());
+        if(!archivoPartida.exists())
+            botonJugar.setEnabled(false);
+    }
+    
+    private String partidaDelJugador(){
+        Jugador jugador = Juego.getInstance().getJugador();
+        return "data/" + jugador.getNombre() + ".xml";
     }
     
     private JButton crearBotonVerPuntajes(){
