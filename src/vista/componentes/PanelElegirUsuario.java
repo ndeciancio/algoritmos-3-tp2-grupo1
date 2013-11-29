@@ -105,7 +105,6 @@ public class PanelElegirUsuario extends PanelCentrado {
         public void actionPerformed(ActionEvent evento) {
             nombreElegido = nombreBoton;
             actualizarBotonElegirUsuario ();
-            System.out.println(nombreElegido);
         }
 
     }

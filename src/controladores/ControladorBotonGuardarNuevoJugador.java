@@ -6,6 +6,9 @@ import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
 
+import vista.componentes.PanelMapa;
+import vista.componentes.FramePrincipal;
+import vista.componentes.PanelComenzarPartida;
 import modelo.juego.Juego;
 import modelo.juego.Jugador;
 import modelo.persistencia.FachadaPersistencia;
@@ -13,9 +16,9 @@ import modelo.persistencia.FachadaPersistencia;
 public class ControladorBotonGuardarNuevoJugador implements ActionListener {
     
     JTextField campoDeTextoConElNombre;
-    JFrame framePrincipal;
+    FramePrincipal framePrincipal;
     
-    public ControladorBotonGuardarNuevoJugador(JFrame framePrincipal, JTextField campoDeTexto){
+    public ControladorBotonGuardarNuevoJugador(FramePrincipal framePrincipal, JTextField campoDeTexto){
         this.campoDeTextoConElNombre = campoDeTexto;
         this.framePrincipal = framePrincipal;
     }
@@ -30,6 +33,6 @@ public class ControladorBotonGuardarNuevoJugador implements ActionListener {
     private void guardarNuevoJugadorConPuntuacionCero(Jugador jugador){
         FachadaPersistencia persistencia = new FachadaPersistencia();
         persistencia.nuevaPuntuacion(jugador.getNombre(), 0);
-        // Actualizar la escena en el framePrincipal.
+        framePrincipal.setPanel(new PanelComenzarPartida(framePrincipal));
     }
 }
