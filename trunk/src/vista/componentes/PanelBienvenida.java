@@ -4,6 +4,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 
 import controladores.ControladorBotonSoyNuevo;
+import controladores.ControladorBotonTengoUsuario;
 
 public class PanelBienvenida extends PanelCentrado {
 
@@ -40,6 +41,7 @@ public class PanelBienvenida extends PanelCentrado {
 	
 	private JButton crearBotonTengoUsuario(){
 	    JButton boton = new JButton("Ya Tengo Usuario");
+	    boton.addActionListener(crearControladorTengoUsuario());
 	    centrarComponenteEnX(boton);
 	    return boton;
 	}
@@ -47,5 +49,9 @@ public class PanelBienvenida extends PanelCentrado {
 	private ControladorBotonSoyNuevo crearControladorSoyNuevo(){
 	    return new ControladorBotonSoyNuevo(framePrincipal);
 	}
+	
+	private ControladorBotonTengoUsuario crearControladorTengoUsuario(){
+        return new ControladorBotonTengoUsuario(framePrincipal);
+    }
 	
 }

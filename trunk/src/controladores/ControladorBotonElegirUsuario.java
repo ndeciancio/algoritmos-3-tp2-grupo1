@@ -8,13 +8,15 @@ import javax.swing.JFrame;
 import modelo.juego.Juego;
 import modelo.juego.Jugador;
 import modelo.persistencia.FachadaPersistencia;
+import vista.componentes.FramePrincipal;
+import vista.componentes.PanelComenzarPartida;
 
 public class ControladorBotonElegirUsuario implements ActionListener {
     
     String nombre;
-    JFrame framePrincipal;
+    FramePrincipal framePrincipal;
     
-    public ControladorBotonElegirUsuario(JFrame framePrincipal, String nombreElegido){
+    public ControladorBotonElegirUsuario(FramePrincipal framePrincipal, String nombreElegido){
         this.nombre = nombreElegido;
         this.framePrincipal = framePrincipal;
     }
@@ -25,9 +27,6 @@ public class ControladorBotonElegirUsuario implements ActionListener {
             Juego juego = Juego.getInstance();
             juego.getJugador().setNombre(nombre);
         }
-    }
-    
-    public void actualizar(String nombreElegido) {
-        this.nombre = nombreElegido;
+        framePrincipal.setPanel(new PanelComenzarPartida(framePrincipal));
     }
 }
