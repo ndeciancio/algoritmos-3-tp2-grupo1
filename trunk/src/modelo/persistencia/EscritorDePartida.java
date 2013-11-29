@@ -30,9 +30,8 @@ public class EscritorDePartida {
     }
     
     private Element crearNodoPartida(){
-        Element partida = documentoXML.createElement("partida");
+        Element partida = documentoXML.getDocumentElement();
         partida.setAttribute("dificultad", stringDificultad());
-        documentoXML.appendChild(partida);
         return partida;
     }
     
