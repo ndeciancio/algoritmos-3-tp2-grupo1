@@ -27,6 +27,14 @@ public class TablaDePuntuaciones implements Iterable<TablaDePuntuaciones.Entrada
 	    return puntuaciones.size();
 	}
 	
+	public int getPuntuacion(String nombre){
+	    for(Entrada entrada : puntuaciones){
+	        if(entrada.getNombre().equals(nombre))
+	            return entrada.getPuntuacion();
+	    }
+	    return 0;
+	}
+	
 	@Override
 	public Iterator<Entrada> iterator(){
 		return puntuaciones.iterator();
