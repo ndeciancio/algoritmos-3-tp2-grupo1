@@ -3,6 +3,8 @@ package controladores;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JPanel;
+
 import modelo.general.Mapa;
 import modelo.juego.Juego;
 import modelo.juego.Jugador;
@@ -23,7 +25,10 @@ public class ControladorBotonJugar implements ActionListener {
     public void actionPerformed(ActionEvent evento) {
         cargarMapa();
         generarPosiciones();
-        framePrincipal.setPanel(new PanelMapa(framePrincipal));
+        //framePrincipal.setPanel(new PanelMapa(framePrincipal));
+        JPanel panel = new PanelMapa(framePrincipal); 
+        framePrincipal.setPanel(panel); 
+        panel.requestFocus();
     }
     
     private void cargarMapa(){

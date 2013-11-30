@@ -20,11 +20,8 @@ import java.util.List;
 
 import javax.swing.JButton;
 
-import controladores.ControladorBotonMoverDerecha;
-import controladores.ControladorBotonMoverAbajo;
-import controladores.ControladorBotonMoverIzquierda;
-import controladores.ControladorBotonMoverArriba;
 import controladores.ControladorBotonGuardarPartida;
+import controladores.ControladorKeyListener;
 
 public class PanelMapa extends JPanel {
 
@@ -49,38 +46,10 @@ public class PanelMapa extends JPanel {
         this.cuadrasEnY = (mapa.getAlto() + 3) /2;
     }
     
-    private JButton crearBotonMoverAbajo(){
-        JButton boton = new JButton("Abajo");
-        boton.addActionListener(new ControladorBotonMoverAbajo(framePrincipal));
-        boton.setBounds(665, 200, 100, 50);
-        return boton;
-    }
-    
-    private JButton crearBotonMoverDerecha(){
-        JButton boton = new JButton("Derecha");
-        boton.addActionListener(new ControladorBotonMoverDerecha(framePrincipal));
-        boton.setBounds(710, 150, 100, 50);
-        return boton;
-    }
-    
-    private JButton crearBotonMoverIzquierda(){
-        JButton boton = new JButton("Izquierda");
-        boton.addActionListener(new ControladorBotonMoverIzquierda(framePrincipal));
-        boton.setBounds(610, 150, 100, 50);
-        return boton;
-    }
-    
-    private JButton crearBotonMoverArriba(){
-        JButton boton = new JButton("Arriba");
-        boton.addActionListener(new ControladorBotonMoverArriba(framePrincipal));
-        boton.setBounds(665, 100, 100, 50);
-        return boton;
-    }
-    
 
     private JButton crearBotonGuardar(){
         JButton boton = new JButton("Guardar Partida");
-        boton.addActionListener(new ControladorBotonGuardarPartida());
+        boton.addActionListener(new ControladorBotonGuardarPartida(this));
         boton.setBounds(calcularXParaCentrarElMapa() + 300, 12, 150, 25);
         return boton;
     }
@@ -102,13 +71,19 @@ public class PanelMapa extends JPanel {
         return labelMovimientosLimites;
     }
     
+    private JLabel crearLabelInstrucciones(){
+        JLabel labelInstrucciones = new JLabel( "<html><body>Para moverse utilice <br> las flechas del Teclado</body></html>");
+        labelInstrucciones.setBounds(650, 100, 200, 50);
+        return labelInstrucciones;
+    }
+    
     protected void configurarComponentes(){
-        this.add(crearBotonMoverIzquierda());
-        this.add(crearBotonMoverAbajo());
-        this.add(crearBotonMoverArriba());
-        this.add(crearBotonMoverDerecha());     
+        this.add(crearLabelInstrucciones());
         this.add(crearBotonGuardar());
         this.add(crearLabelMovimientos());
+        setFocusable(true);
+        requestFocusInWindow();
+        this.addKeyListener(new ControladorKeyListener(framePrincipal));
         this.add(crearLabelMovimientosLimite());
     }
 
