@@ -14,6 +14,8 @@ import modelo.persistencia.FachadaPersistencia;
 import modelo.persistencia.TablaDePuntuaciones;
 import modelo.persistencia.TablaDePuntuaciones.Entrada;
 import controladores.ControladorBotonGuardarNuevoJugador;
+import controladores.ControladorBotonJugarOtraVez;
+import controladores.ControladorBotonPanelComenzarPartida;
 
 public class PanelPuntajes extends PanelCentrado {
 
@@ -27,7 +29,10 @@ public class PanelPuntajes extends PanelCentrado {
     protected void configurarComponentes(){
         
         this.add(crearLabelPuntajes());
+        this.insertarGapVertical(10);
         crearLabelsDePuntajes();
+        this.insertarGapVertical(20);
+        this.add(crearBotonVolverAPanelComenzarPartida());
     }
     
     private JLabel crearLabelPuntajes(){
@@ -49,4 +54,16 @@ public class PanelPuntajes extends PanelCentrado {
             centrarComponenteEnX(label);
         }
     }
+    
+    private JButton crearBotonVolverAPanelComenzarPartida(){
+        JButton boton = new JButton("Volver");
+        boton.addActionListener(crearControladorVolverAPanelComenzarPartida());
+        centrarComponenteEnX(boton);
+        return boton;
+    }
+    
+    private ControladorBotonPanelComenzarPartida crearControladorVolverAPanelComenzarPartida(){
+        return new ControladorBotonPanelComenzarPartida(framePrincipal);
+    }
+    
 }
