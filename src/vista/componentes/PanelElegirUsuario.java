@@ -16,6 +16,7 @@ import modelo.persistencia.FachadaPersistencia;
 import modelo.persistencia.TablaDePuntuaciones;
 import modelo.persistencia.TablaDePuntuaciones.Entrada;
 import controladores.ControladorBotonElegirUsuario;
+import controladores.ControladorBotonIrAPanelBienvenida;
 
 public class PanelElegirUsuario extends PanelCentrado {
 
@@ -36,9 +37,13 @@ public class PanelElegirUsuario extends PanelCentrado {
     protected void configurarComponentes(){
         
         this.add(crearLabelIngreseSuNombre());
+        this.insertarGapVertical(10);
         crearBotonesDeUsuario();
+        this.insertarGapVertical(10);
         botonElegirUsuario = crearBotonElegirUsuarior();
         this.add(botonElegirUsuario);
+        this.insertarGapVertical(30);
+        this.add(crearBotonVolverAPanelBienvenida());
         
     }
     
@@ -105,5 +110,16 @@ public class PanelElegirUsuario extends PanelCentrado {
             actualizarBotonElegirUsuario ();
         }
 
+    }
+    
+    private JButton crearBotonVolverAPanelBienvenida(){
+        JButton boton = new JButton("Volver");
+        boton.addActionListener(crearControladorVolverAPanelBienvenida());
+        centrarComponenteEnX(boton);
+        return boton;
+    }
+    
+    private ControladorBotonIrAPanelBienvenida crearControladorVolverAPanelBienvenida(){
+        return new ControladorBotonIrAPanelBienvenida(framePrincipal);
     }
 }

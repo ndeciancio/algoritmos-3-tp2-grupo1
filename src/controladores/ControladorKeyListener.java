@@ -6,6 +6,7 @@ import java.awt.event.KeyListener;
 import modelo.juego.Juego;
 import modelo.juego.Jugador;
 import vista.componentes.FramePrincipal;
+import vista.componentes.PanelPerdiste;
 import vista.componentes.PanelGanaste;
 
 public class ControladorKeyListener implements KeyListener {
@@ -24,16 +25,19 @@ public class ControladorKeyListener implements KeyListener {
         int code = e.getKeyCode();
         if( code == KeyEvent.VK_DOWN){
             jugador.moverAbajo();
-            
+            verificarMovimientos();
         }
         if( code == KeyEvent.VK_UP){
             jugador.moverArriba();
+            verificarMovimientos();
         }
         if( code == KeyEvent.VK_LEFT){
             jugador.moverIzquierda();
+            verificarMovimientos();
         }
         if( code == KeyEvent.VK_RIGHT){
             jugador.moverDerecha();
+            verificarMovimientos();
         }
         framePrincipal.revalidate();
         framePrincipal.repaint();
@@ -54,5 +58,13 @@ public class ControladorKeyListener implements KeyListener {
     {
         
     }
-
+    private void verificarMovimientos(){
+        int movimientosLimite = Juego.getInstance().getDificultad().getLimiteDeMovimientos();
+        Juego juego = Juego.getInstance();
+        Jugador jugador = juego.getJugador();
+        int cantidadDeMovimientos = jugador.getMovimientos();
+        if (cantidadDeMovimientos>movimientosLimite){
+            framePrincipal.setPanel(new PanelPerdiste(framePrincipal));
+        }
+    }
 }

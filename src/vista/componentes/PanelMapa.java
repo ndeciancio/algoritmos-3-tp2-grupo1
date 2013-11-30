@@ -50,7 +50,7 @@ public class PanelMapa extends JPanel {
     private JButton crearBotonGuardar(){
         JButton boton = new JButton("Guardar Partida");
         boton.addActionListener(new ControladorBotonGuardarPartida(this));
-        boton.setBounds(calcularXParaCentrarElMapa() + 300, 12, 150, 25);
+        boton.setBounds(480, 12, 150, 25);
         return boton;
     }
     
@@ -59,21 +59,21 @@ public class PanelMapa extends JPanel {
         Jugador jugador = juego.getJugador();
         int cantidadDeMovimientos = jugador.getMovimientos();
         labelMovimientos = new JLabel("Movimientos: " + cantidadDeMovimientos);
-        labelMovimientos.setBounds(calcularXParaCentrarElMapa(), 0, 200, 50);
+        labelMovimientos.setBounds(180, 0, 200, 50);
         return labelMovimientos;
     }
     
     private JLabel crearLabelMovimientosLimite(){
-        int cantidadDeMovimientos = Juego.getInstance().getDificultad().getLimiteDeMovimientos();;
+        int cantidadDeMovimientos = Juego.getInstance().getDificultad().getLimiteDeMovimientos();
         JLabel labelMovimientosLimites = new JLabel("Movimientos Limites: " + cantidadDeMovimientos);
-        labelMovimientosLimites.setBounds(calcularXParaCentrarElMapa()+ 125, 0, 200, 50);
+        labelMovimientosLimites.setBounds(300, 0, 200, 50);
         labelMovimientosLimites.setForeground(Color.RED);
         return labelMovimientosLimites;
     }
     
     private JLabel crearLabelInstrucciones(){
         JLabel labelInstrucciones = new JLabel( "<html><body>Para moverse utilice <br> las flechas del Teclado</body></html>");
-        labelInstrucciones.setBounds(650, 100, 200, 50);
+        labelInstrucciones.setBounds(650, 0, 200, 50);
         return labelInstrucciones;
     }
     

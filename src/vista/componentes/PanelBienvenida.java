@@ -5,6 +5,7 @@ import javax.swing.JLabel;
 
 import controladores.ControladorBotonSoyNuevo;
 import controladores.ControladorBotonTengoUsuario;
+import controladores.ControladorBotonSalir;
 
 public class PanelBienvenida extends PanelCentrado {
 
@@ -24,6 +25,9 @@ public class PanelBienvenida extends PanelCentrado {
 		
 		this.insertarGapVertical(10);
 		this.add(crearBotonTengoUsuario());
+		
+		this.insertarGapVertical(20);
+		this.add(crearBotonSalir());
 	}
 	
 	private JLabel crearLabelBienvenido(){
@@ -46,6 +50,17 @@ public class PanelBienvenida extends PanelCentrado {
 	    return boton;
 	}
 	
+	private JButton crearBotonSalir(){
+        JButton boton = new JButton("Salir");
+        boton.addActionListener(crearControladorSalir());
+        centrarComponenteEnX(boton);
+        return boton;
+    }
+	
+	private ControladorBotonSalir crearControladorSalir(){
+	    return new ControladorBotonSalir();
+	}
+	   
 	private ControladorBotonSoyNuevo crearControladorSoyNuevo(){
 	    return new ControladorBotonSoyNuevo(framePrincipal);
 	}
