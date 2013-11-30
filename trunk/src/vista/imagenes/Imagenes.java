@@ -11,7 +11,8 @@ public enum Imagenes {
     AUTOMOVIL("Imagenes/Automovil.png"),
     MOTO("Imagenes/Moto.png"),
     CUATRO_X_CUATRO("Imagenes/CuatroXCuatro.png"),
-    AREA_INVISIBLE("Imagenes/AreaInvisible.png");
+    AREA_INVISIBLE("Imagenes/AreaInvisible.png"),
+    INFORMACION_EVENTOS("Imagenes/InformacionEventos.png");
     
     private String ruta;
     
