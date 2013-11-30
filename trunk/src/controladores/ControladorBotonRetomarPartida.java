@@ -24,6 +24,7 @@ public class ControladorBotonRetomarPartida implements ActionListener {
     public void actionPerformed(ActionEvent evento) {
         cargarPartida();
         framePrincipal.setPanel(new PanelMapa(framePrincipal));
+        this.framePrincipal.getContentPane().requestFocus();
     }
     
     private void cargarPartida(){
