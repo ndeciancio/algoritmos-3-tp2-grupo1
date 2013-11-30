@@ -95,6 +95,7 @@ public class PanelMapa extends JPanel {
         pintarJugador(grafico);
         actualizarMovimientos();
         pintarAreaInvisible(grafico);
+        pintarInformacionEventos(grafico);
         
     }
     
@@ -130,6 +131,11 @@ public class PanelMapa extends JPanel {
             auxEnX = auxEnX + DISTANCIA_ENTRE_CUADRAS/2;
             auxEnY = calcularYParaCentrarElMapa();
         }
+    }
+    
+    private void pintarInformacionEventos(Graphics grafico){
+        BufferedImage imagenEventos = Imagenes.INFORMACION_EVENTOS.obtenerImagen();
+        grafico.drawImage(imagenEventos, 20, 0, null);
     }
     
     private boolean esAreaNegra(int x, int y) {
