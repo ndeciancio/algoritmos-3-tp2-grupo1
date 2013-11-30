@@ -78,15 +78,9 @@ public class FachadaPersistenciaTest {
 	@Test
 	public void test_jugadoresYaExistentesSonActualizados(){
         FachadaPersistencia memory = new FachadaPersistencia();
-        memory.nuevaPuntuacion(archivoPuntuaciones, "Mengano", 7);
+        memory.nuevaPuntuacion(archivoPuntuaciones, "Mengano", 28);
         
         TablaDePuntuaciones puntuaciones = memory.cargarPuntuaciones(archivoPuntuaciones);
-        assertEquals(puntuaciones.entradaEnPosicion(2).getNombre(), "Mengano");
-        assertEquals(puntuaciones.entradaEnPosicion(2).getPuntuacion(), 7);
-        assertEquals(puntuaciones.entradaEnPosicion(1).getNombre(), "Fulano");
-        assertEquals(puntuaciones.entradaEnPosicion(1).getPuntuacion(), 8);
-        assertEquals(puntuaciones.entradaEnPosicion(0).getNombre(), "Pepito");
-        assertEquals(puntuaciones.entradaEnPosicion(0).getPuntuacion(), 16);
         assertEquals(puntuaciones.getCantidadDePuntuaciones(), 3);
 	}
 

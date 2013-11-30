@@ -23,12 +23,23 @@ class ManagerDePuntuaciones {
 	}
 	
 	public void ingresarPuntuacion(File archivo, String nombre, int puntuacion) throws TransformerException{
-		quitarJugadorPorNombre(nombre);
-	    Element jugador = documento.createElement("jugador");
-		jugador.setAttribute("nombre", nombre);
-		jugador.setAttribute("puntuacion", Integer.toString(puntuacion));
-		documento.getDocumentElement().appendChild(jugador);
-		actualizarDocumento(archivo);
+	    if(esMejorPuntuacion(archivo, nombre, puntuacion))
+	        actualizarPuntuacion(archivo, nombre, puntuacion);
+	}
+	
+	private boolean esMejorPuntuacion(File archivo, String nombre, int puntuacion){
+	    FachadaPersistencia persistencia = new FachadaPersistencia();
+	    tabla = persistencia.cargarPuntuaciones(archivo);
+	    return puntuacion > tabla.getPuntuacion(nombre);
+	}
+	
+	private void actualizarPuntuacion(File archivo, String nombre, int puntuacion) throws TransformerException{
+        quitarJugadorPorNombre(nombre);
+        Element jugador = documento.createElement("jugador");
+        jugador.setAttribute("nombre", nombre);
+        jugador.setAttribute("puntuacion", Integer.toString(puntuacion));
+        documento.getDocumentElement().appendChild(jugador);
+        actualizarDocumento(archivo);
 	}
 	
 	private void quitarJugadorPorNombre(String nombre){
