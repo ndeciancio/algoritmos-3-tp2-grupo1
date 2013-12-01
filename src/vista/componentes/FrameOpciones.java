@@ -2,6 +2,9 @@ package vista.componentes;
 
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 
 import javax.swing.Box;
 import javax.swing.JButton;
@@ -33,7 +36,21 @@ public class FrameOpciones extends JFrame {
     private void configurarPropiedades(){
         setTitle(TITULO);
         setSize(DIMENSIONES);
-        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        setResizable(false);
+        setLocationRelativeTo(framePrincipal);
+        setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+        framePrincipal.enable(false);
+        final FrameOpciones frameOpciones = this;
+        WindowListener exitListener = new WindowAdapter() {
+
+            @Override
+            public void windowClosing(WindowEvent e) {
+                frameOpciones.setVisible(false);
+                framePrincipal.enable(true);
+                
+            }
+        };
+        addWindowListener(exitListener);
     }
     
     private void configurarComponentes(){
