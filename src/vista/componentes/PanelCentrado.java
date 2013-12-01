@@ -41,5 +41,5 @@ public abstract class PanelCentrado extends JPanel {
     private void crearPegamentoVertical(){
         this.add(Box.createVerticalGlue());
     }
-
+    
 }

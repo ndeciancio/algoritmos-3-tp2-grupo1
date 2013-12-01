@@ -21,6 +21,7 @@ import java.util.List;
 import javax.swing.JButton;
 
 import controladores.ControladorBotonGuardarPartida;
+import controladores.ControladorBotonIrAPanelBienvenida;
 import controladores.ControladorKeyListener;
 
 public class PanelMapa extends JPanel {
@@ -46,11 +47,22 @@ public class PanelMapa extends JPanel {
         this.cuadrasEnY = (mapa.getAlto() + 3) /2;
     }
     
+    public FramePrincipal getFramePrincipal(){
+        return this.framePrincipal;
+    }
+
 
     private JButton crearBotonGuardar(){
         JButton boton = new JButton("Guardar Partida");
         boton.addActionListener(new ControladorBotonGuardarPartida(this));
-        boton.setBounds(480, 12, 150, 25);
+        boton.setBounds(15, 130, 150, 25);
+        return boton;
+    }
+    
+    private JButton crearBotonVolverAPanelBienvenida(){
+        JButton boton = new JButton("Retirarse");
+        boton.addActionListener(new ControladorBotonIrAPanelBienvenida(framePrincipal));
+        boton.setBounds(15, 170, 150, 25);
         return boton;
     }
     
@@ -81,9 +93,10 @@ public class PanelMapa extends JPanel {
         this.add(crearLabelInstrucciones());
         this.add(crearBotonGuardar());
         this.add(crearLabelMovimientos());
+        this.add(crearBotonVolverAPanelBienvenida());
         setFocusable(true);
         requestFocusInWindow();
-        this.addKeyListener(new ControladorKeyListener(framePrincipal));
+        this.addKeyListener(new ControladorKeyListener(this));
         this.add(crearLabelMovimientosLimite());
     }
 
