@@ -12,7 +12,8 @@ public enum Imagenes {
     MOTO("Imagenes/Moto.png"),
     CUATRO_X_CUATRO("Imagenes/CuatroXCuatro.png"),
     AREA_INVISIBLE("Imagenes/AreaInvisible.png"),
-    INFORMACION_EVENTOS("Imagenes/InformacionEventos.png");
+    INFORMACION_EVENTOS("Imagenes/InformacionEventos2.png"),
+    FONDO("Imagenes/GpsFondo.png");
     
     private String ruta;
     

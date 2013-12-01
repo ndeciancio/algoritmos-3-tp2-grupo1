@@ -39,6 +39,7 @@ public class PanelMapa extends JPanel {
        this.framePrincipal = framePrincipal;
        configurarMapa();
        configurarComponentes();
+       this.setBackground(Color.WHITE);
     }
     
     private void configurarMapa(){
@@ -71,21 +72,23 @@ public class PanelMapa extends JPanel {
         Jugador jugador = juego.getJugador();
         int cantidadDeMovimientos = jugador.getMovimientos();
         labelMovimientos = new JLabel("Movimientos: " + cantidadDeMovimientos);
-        labelMovimientos.setBounds(180, 0, 200, 50);
+        labelMovimientos.setBounds(180, 9, 200, 50);
+        labelMovimientos.setForeground(Color.white);
         return labelMovimientos;
     }
     
     private JLabel crearLabelMovimientosLimite(){
         int cantidadDeMovimientos = Juego.getInstance().getDificultad().getLimiteDeMovimientos();
         JLabel labelMovimientosLimites = new JLabel("Movimientos Limites: " + cantidadDeMovimientos);
-        labelMovimientosLimites.setBounds(300, 0, 200, 50);
+        labelMovimientosLimites.setBounds(300, 9, 200, 50);
         labelMovimientosLimites.setForeground(Color.RED);
         return labelMovimientosLimites;
     }
     
     private JLabel crearLabelInstrucciones(){
-        JLabel labelInstrucciones = new JLabel( "<html><body>*Para moverse utilice <br>las flechas del Teclado.<br> *Para Opciones presione <br>la tecla Escape</body></html>");
-        labelInstrucciones.setBounds(635, 5, 200, 75);
+        JLabel labelInstrucciones = new JLabel( "<html><body>*Para moverse <br>utilice las flechas <br>del Teclado.<br> *Para Opciones <br>presione la tecla <br>Escape</body></html>");
+        labelInstrucciones.setBounds(660, 50, 200, 100);
+        labelInstrucciones.setForeground(Color.white);
         return labelInstrucciones;
     }
     
@@ -101,6 +104,7 @@ public class PanelMapa extends JPanel {
     @Override
     protected void paintComponent(Graphics grafico) {
         super.paintComponent(grafico);
+        pintarFondo(grafico);
         pintarCuadras(grafico);
         pintarEventos(grafico);
         pintarJugador(grafico);
@@ -146,7 +150,7 @@ public class PanelMapa extends JPanel {
     
     private void pintarInformacionEventos(Graphics grafico){
         BufferedImage imagenEventos = Imagenes.INFORMACION_EVENTOS.obtenerImagen();
-        grafico.drawImage(imagenEventos, 20, 0, null);
+        grafico.drawImage(imagenEventos, 40, 45, null);
     }
     
     private boolean esAreaNegra(int x, int y) {
@@ -220,6 +224,11 @@ public class PanelMapa extends JPanel {
         BufferedImage imagenMovil = Imagenes.pngDesdeObjeto(movil);
         Posicion coordenada = calcularCoordenadas(jugador.getPosicionActual());
         grafico.drawImage(imagenMovil, coordenada.getCoordenadaX() , coordenada.getCoordenadaY() , null);
+    }
+    
+    private void pintarFondo(Graphics grafico){
+        BufferedImage fondo = Imagenes.imagenEnRuta("Imagenes/GpsFondo.png");
+        grafico.drawImage(fondo, 0, 0, this);
     }
     
 }
