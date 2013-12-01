@@ -10,7 +10,7 @@ public class FramePrincipal extends JFrame {
 	private static final long serialVersionUID = 1L;
 	
 	private final String TITULO = "GPS Challenge";
-	private final Dimension DIMENSIONES = new Dimension(800, 600);
+	private Dimension DIMENSIONES = new Dimension(800, 600);
 	
 	public FramePrincipal(){
 		configurarPropiedades();
@@ -30,11 +30,15 @@ public class FramePrincipal extends JFrame {
         this.setVisible(true);
     }
 	
-	private void configurarPropiedades(){
+	protected void configurarPropiedades(){
 		this.setTitle(TITULO);
 		this.setSize(DIMENSIONES);
 		this.setResizable(false);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+	
+	public void setDimension(Dimension dimension){
+	    this.DIMENSIONES = dimension;
 	}
 
 }
