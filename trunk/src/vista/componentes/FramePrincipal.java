@@ -34,6 +34,7 @@ public class FramePrincipal extends JFrame {
 		this.setTitle(TITULO);
 		this.setSize(DIMENSIONES);
 		this.setResizable(false);
+		this.setLocationByPlatform(true);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 	

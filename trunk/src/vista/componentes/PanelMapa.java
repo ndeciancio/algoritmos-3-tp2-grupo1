@@ -84,16 +84,14 @@ public class PanelMapa extends JPanel {
     }
     
     private JLabel crearLabelInstrucciones(){
-        JLabel labelInstrucciones = new JLabel( "<html><body>Para moverse utilice <br> las flechas del Teclado</body></html>");
-        labelInstrucciones.setBounds(650, 0, 200, 50);
+        JLabel labelInstrucciones = new JLabel( "<html><body>*Para moverse utilice <br>las flechas del Teclado.<br> *Para Opciones presione <br>la tecla Escape</body></html>");
+        labelInstrucciones.setBounds(635, 5, 200, 75);
         return labelInstrucciones;
     }
     
     protected void configurarComponentes(){
         this.add(crearLabelInstrucciones());
-        this.add(crearBotonGuardar());
         this.add(crearLabelMovimientos());
-        this.add(crearBotonVolverAPanelBienvenida());
         setFocusable(true);
         requestFocusInWindow();
         this.addKeyListener(new ControladorKeyListener(framePrincipal));
