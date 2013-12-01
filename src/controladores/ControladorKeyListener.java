@@ -7,24 +7,20 @@ import modelo.juego.Juego;
 import modelo.juego.Jugador;
 import vista.componentes.FrameOpciones;
 import vista.componentes.FramePrincipal;
-import vista.componentes.PanelMapa;
-import vista.componentes.PanelOpciones;
 import vista.componentes.PanelPerdiste;
 import vista.componentes.PanelGanaste;
 
 public class ControladorKeyListener implements KeyListener {
     
-    PanelMapa panelMapa;
-    FrameOpciones frameOpciones;
+    FramePrincipal framePrincipal;
     
-    public ControladorKeyListener(PanelMapa panelMapa){
-        this.panelMapa = panelMapa;
+    public ControladorKeyListener(FramePrincipal framePrincipal){
+        this.framePrincipal = framePrincipal;
     }
 
     @Override 
     public void keyPressed(KeyEvent e)
     {
-        FramePrincipal framePrincipal = this.panelMapa.getFramePrincipal();
         Juego juego = Juego.getInstance();
         Jugador jugador = juego.getJugador();
         int code = e.getKeyCode();
@@ -45,14 +41,9 @@ public class ControladorKeyListener implements KeyListener {
             verificarMovimientos();
         }
         if( code == KeyEvent.VK_ESCAPE){
-            frameOpciones = new FrameOpciones();
-            PanelOpciones opciones = new PanelOpciones(frameOpciones);
-            opciones.setPanelMapa(panelMapa);
-            frameOpciones.setPanel(opciones);
+            FrameOpciones frameOpciones = new FrameOpciones(framePrincipal);
             frameOpciones.mostrar();
         }
-        framePrincipal.revalidate();
-        framePrincipal.repaint();
         if(jugador.estaEnLaMeta())
             framePrincipal.setPanel(new PanelGanaste(framePrincipal));
         else
@@ -70,13 +61,14 @@ public class ControladorKeyListener implements KeyListener {
     {
         
     }
+    
     private void verificarMovimientos(){
         int movimientosLimite = Juego.getInstance().getDificultad().getLimiteDeMovimientos();
         Juego juego = Juego.getInstance();
         Jugador jugador = juego.getJugador();
         int cantidadDeMovimientos = jugador.getMovimientos();
-        if (cantidadDeMovimientos>movimientosLimite){
-            this.panelMapa.getFramePrincipal().setPanel(new PanelPerdiste(this.panelMapa.getFramePrincipal()));
+        if (cantidadDeMovimientos > movimientosLimite){
+            framePrincipal.setPanel(new PanelPerdiste(framePrincipal));
         }
     }
 }

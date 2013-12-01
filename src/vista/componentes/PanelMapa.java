@@ -54,7 +54,7 @@ public class PanelMapa extends JPanel {
 
     private JButton crearBotonGuardar(){
         JButton boton = new JButton("Guardar Partida");
-        boton.addActionListener(new ControladorBotonGuardarPartida(this));
+        boton.addActionListener(new ControladorBotonGuardarPartida(framePrincipal));
         boton.setBounds(15, 130, 150, 25);
         return boton;
     }
@@ -96,7 +96,7 @@ public class PanelMapa extends JPanel {
         this.add(crearBotonVolverAPanelBienvenida());
         setFocusable(true);
         requestFocusInWindow();
-        this.addKeyListener(new ControladorKeyListener(this));
+        this.addKeyListener(new ControladorKeyListener(framePrincipal));
         this.add(crearLabelMovimientosLimite());
     }
 
