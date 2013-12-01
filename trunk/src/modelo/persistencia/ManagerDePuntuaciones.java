@@ -30,7 +30,7 @@ class ManagerDePuntuaciones {
 	private boolean esMejorPuntuacion(File archivo, String nombre, int puntuacion){
 	    FachadaPersistencia persistencia = new FachadaPersistencia();
 	    tabla = persistencia.cargarPuntuaciones(archivo);
-	    return puntuacion > tabla.getPuntuacion(nombre);
+	    return puntuacion >= tabla.getPuntuacion(nombre);
 	}
 	
 	private void actualizarPuntuacion(File archivo, String nombre, int puntuacion) throws TransformerException{
