@@ -1,4 +1,17 @@
 <mapa ancho="20" alto="20">
+    <evento nombre="Bache" x="15" y="4" />
     <evento nombre="Bache" x="4" y="3" />
-    <evento nombre="ControlPolicial" x="4" y="7" />
+    <evento nombre="Bache" x="4" y="5" />
+    <evento nombre="Bache" x="8" y="17" />
+    <evento nombre="ControlPolicial" x="11" y="2" />
+    <evento nombre="ControlPolicial" x="16" y="7" />
+    <evento nombre="ControlPolicial" x="13" y="14" />
+    <evento nombre="ControlPolicial" x="2" y="9" />
+    <evento nombre="ControlPolicial" x="1" y="8" />
+    <evento nombre="ControlPolicial" x="3" y="2" />
+    <evento nombre="Piquete" x="7" y="10" />
+    <evento nombre="Piquete" x="11" y="6" />
+    <evento nombre="Piquete" x="14" y="17" />
+    <evento nombre="Piquete" x="18" y="9" />
+    
 </mapa>
