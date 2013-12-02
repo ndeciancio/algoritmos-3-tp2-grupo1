@@ -38,6 +38,7 @@ public class PanelGanaste extends PanelCentrado {
         return label;
     }
     
+    @SuppressWarnings("unused")
     private JLabel crearLabelDificultad(){
         int movimientos =Juego.getInstance().getDificultad().getLimiteDeMovimientos() - Juego.getInstance().getJugador().getMovimientos();
         String texto = "Te sobraron " + Integer.toString(movimientos) + " movimientos";
