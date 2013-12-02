@@ -1,12 +1,7 @@
 package vista.componentes;
 
-import java.awt.Graphics;
-import java.awt.image.BufferedImage;
-
 import javax.swing.JButton;
 import javax.swing.JLabel;
-
-import vista.imagenes.Imagenes;
 
 import controladores.ControladorBotonSoyNuevo;
 import controladores.ControladorBotonTengoUsuario;
@@ -33,11 +28,6 @@ public class PanelBienvenida extends PanelCentrado {
 		
 		this.insertarGapVertical(20);
 		this.add(crearBotonSalir());
-	}
-	
-	@Override
-    protected void paintComponent(Graphics grafico) {
-	    pintarFondo(grafico);
 	}
 	
 	private JLabel crearLabelBienvenido(){
@@ -77,11 +67,6 @@ public class PanelBienvenida extends PanelCentrado {
 	
 	private ControladorBotonTengoUsuario crearControladorTengoUsuario(){
         return new ControladorBotonTengoUsuario(framePrincipal);
-    }
-	
-	private void pintarFondo(Graphics grafico){
-        BufferedImage fondo = Imagenes.imagenEnRuta("Imagenes/BienvenidaGps.png");
-        grafico.drawImage(fondo, 0, 0, this);
     }
 	
 }
