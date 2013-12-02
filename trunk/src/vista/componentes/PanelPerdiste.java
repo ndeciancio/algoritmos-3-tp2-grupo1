@@ -4,7 +4,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 
 import controladores.ControladorBotonJugarOtraVez;
-import controladores.ControladorBotonJugarOtraVez;
+
 
 public class PanelPerdiste extends PanelCentrado {
 

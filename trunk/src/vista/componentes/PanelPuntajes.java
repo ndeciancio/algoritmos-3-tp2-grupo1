@@ -1,20 +1,15 @@
 package vista.componentes;
 
-import java.awt.Dimension;
-import java.awt.event.ActionListener;
 import java.util.Iterator;
 
-import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JLabel;
-import javax.swing.JRadioButton;
-import javax.swing.JTextField;
+
 
 import modelo.persistencia.FachadaPersistencia;
 import modelo.persistencia.TablaDePuntuaciones;
 import modelo.persistencia.TablaDePuntuaciones.Entrada;
-import controladores.ControladorBotonGuardarNuevoJugador;
-import controladores.ControladorBotonJugarOtraVez;
+
 import controladores.ControladorBotonPanelComenzarPartida;
 
 public class PanelPuntajes extends PanelCentrado {

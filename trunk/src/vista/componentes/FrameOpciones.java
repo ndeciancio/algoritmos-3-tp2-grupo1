@@ -6,12 +6,12 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
-import javax.swing.Box;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
 import controladores.ControladorBotonGuardarPartida;
 import controladores.ControladorBotonIrAPanelBienvenida;
+import controladores.ControladorBotonSalir;
 
 public class FrameOpciones extends JFrame {
 
@@ -33,6 +33,7 @@ public class FrameOpciones extends JFrame {
         setLayout(new FlowLayout());
     }
     
+    @SuppressWarnings("deprecation")
     private void configurarPropiedades(){
         setTitle(TITULO);
         setSize(DIMENSIONES);
@@ -56,6 +57,13 @@ public class FrameOpciones extends JFrame {
     private void configurarComponentes(){
         this.add(crearBotonGuardar());
         this.add(crearBotonVolverAPanelBienvenida());
+        this.add(crearBotonSalir());
+    }
+    
+    private JButton crearBotonSalir(){
+        JButton boton = new JButton("Salir");
+        boton.addActionListener(new ControladorBotonSalir());
+        return boton;
     }
     
     private JButton crearBotonGuardar(){

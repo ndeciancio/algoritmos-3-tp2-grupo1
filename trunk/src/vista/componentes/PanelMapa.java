@@ -18,10 +18,6 @@ import java.awt.Graphics;
 import java.util.Iterator;
 import java.util.List;
 
-import javax.swing.JButton;
-
-import controladores.ControladorBotonGuardarPartida;
-import controladores.ControladorBotonIrAPanelBienvenida;
 import controladores.ControladorKeyListener;
 
 public class PanelMapa extends JPanel {
@@ -52,21 +48,6 @@ public class PanelMapa extends JPanel {
         return this.framePrincipal;
     }
 
-
-    private JButton crearBotonGuardar(){
-        JButton boton = new JButton("Guardar Partida");
-        boton.addActionListener(new ControladorBotonGuardarPartida(framePrincipal));
-        boton.setBounds(15, 130, 150, 25);
-        return boton;
-    }
-    
-    private JButton crearBotonVolverAPanelBienvenida(){
-        JButton boton = new JButton("Retirarse");
-        boton.addActionListener(new ControladorBotonIrAPanelBienvenida(framePrincipal));
-        boton.setBounds(15, 170, 150, 25);
-        return boton;
-    }
-    
     private JLabel crearLabelMovimientos(){
         Juego juego = Juego.getInstance();
         Jugador jugador = juego.getJugador();
@@ -194,6 +175,7 @@ public class PanelMapa extends JPanel {
         return ((cuadrasEnX)*DISTANCIA_ENTRE_CUADRAS);
     }
     
+    @SuppressWarnings("unused")
     private int calcularAltoDelGraficoDelMapa(){
         return ((cuadrasEnY)*DISTANCIA_ENTRE_CUADRAS);
     }
