@@ -41,7 +41,7 @@ public class Jugador {
     
     public void setPosicionInicial(Posicion posicion){
         this.posicionActual = posicion;
-        this.posicionAnterior = posicion;
+        this.posicionAnterior = new Posicion(posicion);
     }
     
     public Posicion getPosicionActual(){
@@ -161,6 +161,6 @@ public class Jugador {
     
     public void generarPosicion(){
         posicionActual = unMapa.getPosicionAlAzar();
-        posicionAnterior = posicionActual;
+        posicionAnterior = new Posicion(posicionActual);
     }
 }
