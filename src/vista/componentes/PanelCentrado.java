@@ -2,11 +2,15 @@ package vista.componentes;
 
 import java.awt.Component;
 import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.image.BufferedImage;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JComponent;
 import javax.swing.JPanel;
+
+import vista.imagenes.Imagenes;
 
 public abstract class PanelCentrado extends JPanel {
 
@@ -19,6 +23,11 @@ public abstract class PanelCentrado extends JPanel {
         crearPegamentoVertical();
         configurarComponentes();
         crearPegamentoVertical();
+    }
+    
+    @Override
+    protected void paintComponent(Graphics grafico) {
+        pintarFondo(grafico);
     }
     
     protected void configurarLayout(){
@@ -40,6 +49,11 @@ public abstract class PanelCentrado extends JPanel {
     
     private void crearPegamentoVertical(){
         this.add(Box.createVerticalGlue());
+    }
+    
+    private void pintarFondo(Graphics grafico){
+        BufferedImage fondo = Imagenes.imagenEnRuta("Imagenes/BienvenidaGps.png");
+        grafico.drawImage(fondo, 0, 0, this);
     }
     
 }
