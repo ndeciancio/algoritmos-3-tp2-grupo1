@@ -16,6 +16,7 @@ public abstract class PanelCentrado extends JPanel {
 
     private static final long serialVersionUID = 1L;
     protected FramePrincipal framePrincipal;
+    private BufferedImage fondo;
     
     public PanelCentrado(FramePrincipal framePrincipal){
         this.framePrincipal = framePrincipal;
@@ -23,6 +24,7 @@ public abstract class PanelCentrado extends JPanel {
         crearPegamentoVertical();
         configurarComponentes();
         crearPegamentoVertical();
+        fondo = Imagenes.imagenEnRuta("Imagenes/BienvenidaGps.png");
     }
     
     @Override
@@ -52,8 +54,7 @@ public abstract class PanelCentrado extends JPanel {
     }
     
     private void pintarFondo(Graphics grafico){
-        BufferedImage fondo = Imagenes.imagenEnRuta("Imagenes/BienvenidaGps.png");
-        grafico.drawImage(fondo, 0, 0, this);
+        grafico.drawImage(this.fondo, 0, 0, this);
     }
     
 }

@@ -29,6 +29,7 @@ public class PanelMapa extends JPanel {
     private int cuadrasEnX;
     private int cuadrasEnY;
     private JLabel labelMovimientos;
+    private  BufferedImage fondo;
     
     public PanelMapa(FramePrincipal framePrincipal) {
        this.setLayout(null);
@@ -36,6 +37,8 @@ public class PanelMapa extends JPanel {
        configurarMapa();
        configurarComponentes();
        this.setBackground(Color.WHITE);
+       this.fondo = Imagenes.imagenEnRuta("Imagenes/GpsFondo.png");
+       
     }
     
     private void configurarMapa(){
@@ -209,8 +212,7 @@ public class PanelMapa extends JPanel {
     }
     
     private void pintarFondo(Graphics grafico){
-        BufferedImage fondo = Imagenes.imagenEnRuta("Imagenes/GpsFondo.png");
-        grafico.drawImage(fondo, 0, 0, this);
+        grafico.drawImage(this.fondo, 0, 0, this);
     }
     
 }
