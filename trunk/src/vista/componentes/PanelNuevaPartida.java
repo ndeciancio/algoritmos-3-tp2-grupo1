@@ -3,7 +3,9 @@ package vista.componentes;
 import java.awt.event.ActionListener;
 
 import vista.componentes.PanelCentrado;
+import vista.imagenes.Imagenes;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JRadioButton;
@@ -101,6 +103,7 @@ public class PanelNuevaPartida extends PanelCentrado {
         centrarComponenteEnX(boton);
         boton.addActionListener(crearControladorRadioBotonVehiculo(0));
         boton.setSelected(true);
+        boton.setIcon(new ImageIcon(Imagenes.imagenEnRuta("Imagenes/Automovil.png")));
         return boton;
     }
     
@@ -108,6 +111,7 @@ public class PanelNuevaPartida extends PanelCentrado {
         JRadioButton boton = new JRadioButton("Cuatro X Cuatro");
         centrarComponenteEnX(boton);
         boton.addActionListener(crearControladorRadioBotonVehiculo(1));
+        boton.setIcon(new ImageIcon(Imagenes.imagenEnRuta("Imagenes/CuatroXCuatro.png")));
         return boton;
     }
     
@@ -115,6 +119,7 @@ public class PanelNuevaPartida extends PanelCentrado {
         JRadioButton boton = new JRadioButton("Moto");
         centrarComponenteEnX(boton);
         boton.addActionListener(crearControladorRadioBotonVehiculo(2));
+        boton.setIcon(new ImageIcon(Imagenes.imagenEnRuta("Imagenes/Moto.png")));
         return boton;
     }
     
