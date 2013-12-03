@@ -3,6 +3,8 @@ package vista.componentes;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 
+import modelo.juego.Juego;
+
 import controladores.ControladorBotonSoyNuevo;
 import controladores.ControladorBotonTengoUsuario;
 import controladores.ControladorBotonSalir;
@@ -13,6 +15,7 @@ public class PanelBienvenida extends PanelCentrado {
 	
 	public PanelBienvenida(FramePrincipal framePrincipal){
 	    super(framePrincipal);
+	    Juego.getInstance().ponerPorDefecto();
 	}
 	
 	@Override

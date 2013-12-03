@@ -33,7 +33,6 @@ public class FrameOpciones extends JFrame {
         setLayout(new FlowLayout());
     }
     
-    @SuppressWarnings("deprecation")
     private void configurarPropiedades(){
         setTitle(TITULO);
         setSize(DIMENSIONES);
@@ -47,7 +46,7 @@ public class FrameOpciones extends JFrame {
             @Override
             public void windowClosing(WindowEvent e) {
                 frameOpciones.setVisible(false);
-                framePrincipal.enable(true);
+                framePrincipal.setEnabled(true);
                 
             }
         };
