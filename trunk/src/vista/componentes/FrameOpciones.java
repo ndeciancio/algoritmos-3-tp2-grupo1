@@ -10,7 +10,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 
 import controladores.ControladorBotonGuardarPartida;
-import controladores.ControladorBotonIrAPanelBienvenida;
+import controladores.ControladorBotonIrAPanelBienvenidaDialogo;
 import controladores.ControladorBotonSalir;
 
 public class FrameOpciones extends JFrame {
@@ -40,7 +40,7 @@ public class FrameOpciones extends JFrame {
         setResizable(false);
         setLocationRelativeTo(framePrincipal);
         setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-        framePrincipal.enable(false);
+        framePrincipal.setEnabled(false);
         final FrameOpciones frameOpciones = this;
         WindowListener exitListener = new WindowAdapter() {
 
@@ -74,7 +74,7 @@ public class FrameOpciones extends JFrame {
     
     private JButton crearBotonVolverAPanelBienvenida(){
         JButton boton = new JButton("Retirarse");
-        boton.addActionListener(new ControladorBotonIrAPanelBienvenida(framePrincipal));
+        boton.addActionListener(new ControladorBotonIrAPanelBienvenidaDialogo(framePrincipal, this));
         return boton;
     }
     
