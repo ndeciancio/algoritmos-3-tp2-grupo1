@@ -1,10 +1,13 @@
 package modelo.evento.obstaculos;
 
+import controladores.ControladorSonido;
 import modelo.evento.Evento;
 import modelo.general.Posicion;
 import modelo.juego.Jugador;
 
 public class ControlPolicial extends Obstaculo {
+    
+    private ControladorSonido player= new ControladorSonido("Sonidos/Don't Point That Thing.mp3");
     
     public ControlPolicial(Posicion posicion){
         super(posicion);    
@@ -13,6 +16,7 @@ public class ControlPolicial extends Obstaculo {
     @Override
     public void interactuarCon(Jugador jugador){
         jugador.getMovil().cruzarControlPolicial(jugador);
+        player.play();
     }
     
     @Override

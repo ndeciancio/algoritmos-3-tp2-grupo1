@@ -1,10 +1,13 @@
 package modelo.evento.obstaculos;
 
+import controladores.ControladorSonido;
 import modelo.evento.Evento;
 import modelo.general.Posicion;
 import modelo.juego.Jugador;
 
 public class Bache extends Obstaculo{
+    
+    private ControladorSonido player= new ControladorSonido("Sonidos/Dadgum.mp3");
 	
 	public Bache(Posicion posicion){
 		super(posicion);	
@@ -13,6 +16,7 @@ public class Bache extends Obstaculo{
     @Override
     public void interactuarCon(Jugador jugador){
         jugador.getMovil().cruzarBache(jugador);
+        player.play();
     }
     
     @Override
