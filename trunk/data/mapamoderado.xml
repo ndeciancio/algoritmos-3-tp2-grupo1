@@ -13,5 +13,8 @@
     <evento nombre="Piquete" x="11" y="6" />
     <evento nombre="Piquete" x="14" y="17" />
     <evento nombre="Piquete" x="18" y="9" />
+    <evento nombre="MovimientosAdicionales" x="9" y="8" />
+    <evento nombre="ReduccionDeMovimientos" x="5" y="12" />
+    <evento nombre="RotacionDeVehiculo" x="12" y="5" />
     
 </mapa>
