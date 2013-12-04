@@ -14,6 +14,8 @@ public class ControladorKeyListener implements KeyListener {
     
     FramePrincipal framePrincipal;
     
+    private ControladorSonido player= new ControladorSonido("Sonidos/My granny.mp3");
+    
     public ControladorKeyListener(FramePrincipal framePrincipal){
         this.framePrincipal = framePrincipal;
     }
@@ -69,6 +71,7 @@ public class ControladorKeyListener implements KeyListener {
         int cantidadDeMovimientos = jugador.getMovimientos();
         if (cantidadDeMovimientos > movimientosLimite){
             framePrincipal.setPanel(new PanelPerdiste(framePrincipal));
+            player.play();
         }
     }
 }

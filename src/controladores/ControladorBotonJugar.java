@@ -17,6 +17,8 @@ public class ControladorBotonJugar implements ActionListener {
 
     FramePrincipal framePrincipal;
     
+    private ControladorSonido player= new ControladorSonido("Sonidos/Start the game.mp3");
+    
     public ControladorBotonJugar(FramePrincipal framePrincipal){
         this.framePrincipal = framePrincipal;
     }
@@ -29,6 +31,7 @@ public class ControladorBotonJugar implements ActionListener {
         JPanel panel = new PanelMapa(framePrincipal); 
         framePrincipal.setPanel(panel); 
         panel.requestFocus();
+        player.play();
     }
     
     private void cargarMapa(){

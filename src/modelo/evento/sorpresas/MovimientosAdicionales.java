@@ -1,10 +1,13 @@
 package modelo.evento.sorpresas;
 
+import controladores.ControladorSonido;
 import modelo.evento.Evento;
 import modelo.general.Posicion;
 import modelo.juego.Jugador;
 
 public class MovimientosAdicionales extends Sorpresa {
+    
+    private ControladorSonido player= new ControladorSonido("Sonidos/Enemy.mp3");
     
     public MovimientosAdicionales(Posicion posicion) {
         super(posicion);
@@ -14,6 +17,7 @@ public class MovimientosAdicionales extends Sorpresa {
     public void interactuarCon(Jugador jugador) {
     	int movimientosSumados = jugador.getMovimientos() / 4;
         jugador.sumarMovimientos(movimientosSumados);
+        player.play();
     }
     
     @Override
