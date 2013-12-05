@@ -1,12 +1,20 @@
-Algoritmos y ProgramaciÛn III
-Trabajo Pr·ctico 2, Grupo 1
+Algoritmos y Programaci√≥n III
+Trabajo Pr√°ctico 2, Grupo 1
 ======================================
 
 --------------------------------------
 Integrantes:
 
-Adri·n Barreal - 95137
+Adri√°n Barreal - 95137
 Horacio Martinez - 94926
 Santiago Monsech Prada - 92968
 Nicolas Deciancio - 92150
 --------------------------------------
+
+Los diagramas y el informe se encuentran
+en la carpeta docs bajo el directorio 
+ra√≠z del proyecto.
+
+Ejecutar el jar generado por ant con el comando 
+java -cp . -jar GPS\ Challenge.jar 
+en el directorio ra√≠z del proyecto.
