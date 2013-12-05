@@ -36,19 +36,20 @@
 	</target>
 
 	<target name="compilar.aplicacion" depends="setup">
-		<javac srcdir="src" destdir="${build}" includeantruntime="false" debug="yes" target="1.7">
+		<javac srcdir="src" destdir="${build}" includeantruntime="false" debug="yes" target="1.6">
+			<classpath refid="classpath"/>
 		</javac>
 	</target>
 	
 	<target name="compilar.tests" depends="instrumentar.aplicacion">
-		<javac srcdir="test" destdir="${build}/tests" includeantruntime="false" debug="yes" target="1.7">
+		<javac srcdir="test" destdir="${build}/tests" includeantruntime="false" debug="yes" target="1.6">
 			<classpath refid="classpath" />
 		</javac>
 	</target>
 
 
 	<target name="ejecutar.tests" depends="compilar.tests">
-		<junit fork="yes" failureProperty="test.failure"  forkmode="once">
+		<junit fork="yes" failureProperty="test.failure"  forkmode="once" >
 			<!-- <classpath refid="classpath" /> -->
 			<sysproperty key="net.sourceforge.cobertura.datafile"
 					file="${build}/cobertura.ser" />
@@ -128,6 +129,7 @@
 	</target>
 
 	<target name="empaquetar" depends="compilar.paquete">
+		<copydir src="src/Imagenes"	dest="${build}/clases/Imagenes" includes="**/*.png"/>
 		<jar destfile="${build}/dist/titiritero.jar" basedir="${build}/classes"/>
 	</target>
 
