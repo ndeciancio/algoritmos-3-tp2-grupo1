@@ -16,5 +16,5 @@ en la carpeta docs bajo el directorio
 raíz del proyecto.
 
 Ejecutar el jar generado por ant con el comando 
-java -cp . -jar GPS\ Challenge.jar 
+java -cp . -jar Gps\ Challenge.jar 
 en el directorio raíz del proyecto.
